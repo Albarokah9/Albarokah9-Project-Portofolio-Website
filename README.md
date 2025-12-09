@@ -300,7 +300,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-**Built with ❤️ by Albarokah Rifansah Sutanto Putra**  
+**Built with by Albarokah Rifansah Sutanto Putra**  
 **Last Updated**: December 8, 2025  
 **Version**: 1.0.0  
 **Status**: ✅ Live & Production Ready
