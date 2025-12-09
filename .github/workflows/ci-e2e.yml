@@ -1,0 +1,37 @@
+name: CI – E2E Tests with Cypress
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Cypress E2E
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm run dev -- --host 0.0.0.0 --port 5173
+          wait-on: 'http://127.0.0.1:5173'
+          spec: cypress/e2e/portfolio.cy.js
+        env:
+          CYPRESS_BASE_URL: http://127.0.0.1:5173
