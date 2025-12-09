@@ -18,6 +18,9 @@ dist
 .DS_Store
 *.local
 
+# Build
+.vite
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

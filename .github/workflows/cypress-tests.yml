@@ -24,13 +24,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
-      - name: Clean install dependencies
-        run: |
-          rm -rf node_modules package-lock.json
-          npm install
+      - name: Install dependencies
+        run: npm ci
 
       - name: Run Cypress tests
-        run: npm run cypress:run
+        run: npx cypress run --spec "cypress/e2e/portfolio.cy.js"
         env:
           CYPRESS_BASE_URL: http://localhost:5173
 
