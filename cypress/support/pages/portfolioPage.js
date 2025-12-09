@@ -161,5 +161,5 @@ class PortfolioPage {
     this.getSection(sectionId).should('be.visible');
   }
 }
-
+// Page Object instance
 export default new PortfolioPage();
