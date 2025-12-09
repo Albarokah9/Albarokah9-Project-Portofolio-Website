@@ -24,14 +24,21 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: npm
 
-      - name: Install dependencies
-        run: npm ci
+      # 🔧 Workaround bug npm + rollup di Linux
+      - name: Clean install dependencies (npm install)
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install
 
       - name: Run Cypress E2E
         uses: cypress-io/github-action@v6
         with:
-          start: npm run dev -- --host 0.0.0.0 --port 5173
+          # Build dulu, lalu serve hasil build dengan preview
+          build: npm run build
+          start: npm run preview -- --host 0.0.0.0 --port 5173
           wait-on: 'http://127.0.0.1:5173'
-          spec: cypress/e2e/portfolio.cy.js
+          command: npm run test:e2e
+          # Kalau mau hanya 1 spec:
+          # command: npm run cypress:run:spec
         env:
           CYPRESS_BASE_URL: http://127.0.0.1:5173
