@@ -7,9 +7,15 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Cypress
+cypress/screenshots
+cypress/videos
+cypress/downloads
+
+# Dependencies
 node_modules
 dist
-dist-ssr
+.DS_Store
 *.local
 
 # Editor directories and files

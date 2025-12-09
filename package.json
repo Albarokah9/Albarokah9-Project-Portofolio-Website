@@ -1,14 +1,15 @@
 {
   "name": "qa-portfolio",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "cy:open": "cypress open",
-    "test": "cypress run"
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:run:spec": "cypress run --spec 'cypress/e2e/portfolio.cy.js'",
+    "test:e2e": "cypress run"
   },
   "devDependencies": {
     "cypress": "^15.7.1",
