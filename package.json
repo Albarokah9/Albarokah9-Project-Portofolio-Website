@@ -8,8 +8,13 @@
     "preview": "vite preview",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "cypress:run:spec": "cypress run --spec 'cypress/e2e/portfolio.cy.js'",
-    "test:e2e": "cypress run"
+    "test:e2e": "cypress run",
+    "test:e2e:smoke": "cypress run --spec 'cypress/e2e/01-smoke-tests.cy.js'",
+    "test:e2e:nav": "cypress run --spec 'cypress/e2e/02-navigation-tests.cy.js'",
+    "test:e2e:theme": "cypress run --spec 'cypress/e2e/03-theme-toggle-tests.cy.js'",
+    "test:e2e:links": "cypress run --spec 'cypress/e2e/04-links-tests.cy.js'",
+    "test:e2e:responsive": "cypress run --spec 'cypress/e2e/05-responsive-tests.cy.js'",
+    "test:e2e:content": "cypress run --spec 'cypress/e2e/06-content-validation-tests.cy.js'"
   },
   "devDependencies": {
     "cypress": "^15.7.1",

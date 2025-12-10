@@ -16,5 +16,4 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 
-// Import Page Object Model
-import '../support/pages/portfolioPage'
+// Page Object imported in individual spec files
