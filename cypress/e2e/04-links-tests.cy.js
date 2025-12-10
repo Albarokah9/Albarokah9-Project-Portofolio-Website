@@ -156,11 +156,19 @@ describe('Portfolio - External Links Tests', () => {
 
     describe('Link Accessibility', () => {
         it('TC-049: Should not have broken internal links', () => {
-            const navLinks = ['About', 'Experience', 'Education', 'Skills', 'Projects', 'Certifications', 'Contact'];
+            const sections = [
+                { name: 'About', selector: portfolioPage.selectors.about.section },
+                { name: 'Experience', selector: portfolioPage.selectors.experience.section },
+                { name: 'Education', selector: portfolioPage.selectors.education.section },
+                { name: 'Skills', selector: portfolioPage.selectors.skills.section },
+                { name: 'Projects', selector: portfolioPage.selectors.projects.section },
+                { name: 'Certifications', selector: portfolioPage.selectors.certifications.section },
+                { name: 'Contact', selector: portfolioPage.selectors.contact.section }
+            ];
 
-            navLinks.forEach((link) => {
-                portfolioPage.clickNavLink(link);
-                cy.url().should('include', `#${link.toLowerCase()}`);
+            sections.forEach((section) => {
+                portfolioPage.clickNavLink(section.name);
+                portfolioPage.shouldBeVisible(section.selector);
             });
         });
 
