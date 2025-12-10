@@ -414,6 +414,7 @@
 | TC-068 | Name | "ALBAROKAH RIFANSAH SUTANTO PUTRA" |
 | TC-069 | Job Title | "Quality Assurance Engineer" |
 | TC-070 | Location | "Bogor" |
+| TC-070a | Profile Image | Image Visible & Src Valid |
 
 ---
 
