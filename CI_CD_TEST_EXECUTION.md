@@ -28,7 +28,7 @@ cypress run
 | 4 | `04-links-tests.cy.js` | 15 | High | ~35s |
 | 5 | `05-responsive-tests.cy.js` | 17 | High | ~90s |
 | 6 | `06-content-validation-tests.cy.js` | 34 | Medium | ~60s |
-| **TOTAL** | **6 Files** | **125 Cases** | - | **~5 min** |
+| **TOTAL** | **6 Files** | **126 Cases** | - | **~5 min** |
 
 ---
 
@@ -189,7 +189,7 @@ CYPRESS_BASE_URL: http://127.0.0.1:5173
 
 ### CI/CD (Automated):
 - **When**: Every push/PR to main/develop
-- **What**: ALL 125 test cases
+- **What**: ALL 126 test cases
 - **Where**: GitHub Actions (Ubuntu Linux)
 - **Browser**: Electron (headless)
 - **Timeout**: 15 minutes max
@@ -206,7 +206,7 @@ CYPRESS_BASE_URL: http://127.0.0.1:5173
 ## 📈 Success Criteria
 
 ### CI/CD Pass Criteria:
-- ✅ All 125 test cases pass
+- ✅ All 126 test cases pass
 - ✅ No console errors
 - ✅ Execution time < 5 minutes
 - ✅ No screenshots in failure artifacts
@@ -268,7 +268,7 @@ CYPRESS_BASE_URL: http://127.0.0.1:5173
 | External Links | 1 | 15 | 100% |
 | Responsive Design | 1 | 17 | 100% |
 | Content Validation | 1 | 34 | 100% |
-| **TOTAL** | **6** | **125** | **~95%** |
+| **TOTAL** | **6** | **126** | **~95%** |
 
 ---
 
