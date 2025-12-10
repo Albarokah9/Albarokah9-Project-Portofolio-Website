@@ -73,7 +73,7 @@ describe('Portfolio - Responsive Design Tests', () => {
             // Verify hero content is stacked
             portfolioPage
                 .getElement(portfolioPage.selectors.hero.section)
-                .should('have.css', 'flex-direction', 'column');
+                .should('have.css', 'flex-direction', 'column-reverse');
         });
 
         it('TC-058: Should have touch-friendly button sizes', () => {
