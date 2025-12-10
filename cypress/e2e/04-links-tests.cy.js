@@ -35,6 +35,13 @@ describe('Portfolio - External Links Tests', () => {
                 'github.com/Albarokah9'
             );
         });
+
+        it('TC-039a: Should have valid Cover Letter link in hero', () => {
+            portfolioPage.verifyExternalLink(
+                portfolioPage.selectors.hero.coverLetterBtn,
+                'files/Cover_Letter_Albarokah.pdf'
+            );
+        });
     });
 
     describe('Projects Section Links', () => {
