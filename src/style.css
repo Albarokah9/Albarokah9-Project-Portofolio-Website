@@ -21,6 +21,10 @@
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+  /* Footer color untuk dark theme */
+  --footer-color: #888888;
+  /* Mobile nav background */
+  --mobile-nav-bg: rgba(13, 13, 18, 0.98);
 }
 
 /* Light Theme */
@@ -45,6 +49,10 @@
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  /* Footer color untuk light theme */
+  --footer-color: #6c757d;
+  /* Mobile nav background untuk light theme */
+  --mobile-nav-bg: rgba(248, 249, 250, 0.98);
 }
 
 body {
@@ -182,7 +190,7 @@ body::before {
 }
 
 .contact-info a:hover {
-  color: #fff;
+  color: var(--accent-secondary);
 }
 
 .social-links-hero {
@@ -594,7 +602,7 @@ h2 {
 footer {
   text-align: center;
   padding: 40px 0;
-  color: #666;
+  color: var(--footer-color);
   font-size: 0.9rem;
 }
 
@@ -681,7 +689,7 @@ footer {
     left: -100%;
     top: 70px;
     flex-direction: column;
-    background: rgba(13, 13, 18, 0.98);
+    background: var(--mobile-nav-bg);
     backdrop-filter: blur(10px);
     width: 100%;
     text-align: center;
