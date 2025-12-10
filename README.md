@@ -13,7 +13,7 @@ Portfolio website showcasing my projects, skills, and certifications as a Qualit
 **Tech Stack**: Vite + Vanilla JavaScript + CSS3  
 **Testing**: Cypress E2E Testing  
 **Deployment**: GitHub Pages (Free & Auto-deploy)  
-**Design**: Glassmorphism with dark theme
+**Design**: Glassmorphism with dark/light theme toggle
 
 ---
 
@@ -23,7 +23,8 @@ Portfolio website showcasing my projects, skills, and certifications as a Qualit
 Project-Portofolio-Website/
 ├── .github/
 │   └── workflows/
-│       └── static.yml          # GitHub Actions workflow untuk auto-deploy
+│       ├── pages.yml           # GitHub Pages deployment workflow
+│       └── ci-e2e.yml          # CI/CD untuk Cypress E2E testing
 ├── cypress/
 │   ├── e2e/
 │   │   └── home.cy.js         # Sample Cypress test
@@ -89,11 +90,15 @@ Project-Portofolio-Website/
 ## 🎨 Design Features
 
 - **Glassmorphism UI** with blur effects
-- **Dark theme** with cyan & pink accents
+- **Dark/Light Theme Toggle** ✨ - Seamless switching with optimized contrast
+- **Premium color schemes**:
+  - Dark Mode: Cyan & pink accents on dark background
+  - Light Mode: Blue & red accents with high contrast text
 - **Smooth animations** on hover & scroll
 - **Fully responsive** (Desktop, Tablet, Mobile)
 - **Hamburger menu** for mobile navigation
 - **Interactive elements** (WhatsApp link, certificate buttons)
+- **Optimized readability** - All text readable in both themes
 
 ---
 
@@ -199,23 +204,44 @@ git push
 
 ### **How It Works**
 1. Push code to `main` branch
-2. GitHub Actions workflow (`.github/workflows/static.yml`) triggers
+2. GitHub Actions workflow (`.github/workflows/pages.yml`) triggers
 3. Workflow runs:
    - ✅ Install dependencies (`npm ci`)
+   - ✅ Fix Rollup dependencies (Linux workaround)
    - ✅ Build project (`npm run build`)
    - ✅ Deploy `dist/` folder to GitHub Pages
 4. Live in 1-2 minutes at: https://albarokah9.github.io/Albarokah9-Project-Portofolio-Website/
 
-### **Workflow File** (`.github/workflows/static.yml`)
+### **CI/CD Testing**
+- Automated E2E tests run on every push to `main` or `develop`
+- Cypress tests verify portfolio functionality
+- Screenshots & videos saved as artifacts on test failure
+
+### **Workflow Files**
+
+**Deployment** (`.github/workflows/pages.yml`):
 ```yaml
 - Trigger: Push to main branch
 - Steps:
   1. Checkout code
   2. Setup Node.js 20
+  3. Install dependencies (npm ci)
+  4. Fix Rollup optional dependencies
+  5. Build with Vite
+  6. Upload dist folder
+  7. Deploy to GitHub Pages
+```
+
+**CI/CD Testing** (`.github/workflows/ci-e2e.yml`):
+```yaml
+- Trigger: Push/PR to main or develop
+- Steps:
+  1. Checkout code
+  2. Setup Node.js 20
   3. Install dependencies
-  4. Build with Vite
-  5. Upload dist folder
-  6. Deploy to GitHub Pages
+  4. Build & serve preview
+  5. Run Cypress E2E tests
+  6. Upload screenshots/videos on failure
 ```
 
 ---
@@ -287,9 +313,14 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 🎯 Future Enhancements (Roadmap)
 
+### ✅ **Completed**
+- [x] Add dark/light theme toggle with optimized contrast
+- [x] Implement CI/CD with GitHub Actions
+- [x] Add Cypress E2E testing with artifact uploads
+
+### 🚧 **Planned**
 - [ ] Add more Cypress E2E tests (navigation, forms, responsive)
 - [ ] Implement Google Analytics for visitor tracking
-- [ ] Add dark/light theme toggle
 - [ ] Create custom 404 page
 - [ ] Add blog section for QA articles
 - [ ] Implement contact form with backend
@@ -300,7 +331,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-**Built with by Albarokah Rifansah Sutanto Putra**  
-**Last Updated**: December 8, 2025  
-**Version**: 1.0.0  
+**Built with ❤️ by Albarokah Rifansah Sutanto Putra**  
+**Last Updated**: December 10, 2025  
+**Version**: 1.1.0  
 **Status**: ✅ Live & Production Ready
