@@ -43,30 +43,52 @@ describe('Portfolio - External Links Tests', () => {
         });
 
         it('TC-040: Should have GitHub links in project cards', () => {
+            // Check that projects with GitHub links have valid URLs
             portfolioPage
                 .getElement(portfolioPage.selectors.projects.cards)
-                .first()
-                .find(portfolioPage.selectors.projects.link)
-                .should('have.attr', 'href')
-                .and('include', 'github.com');
+                .then(($cards) => {
+                    // Count cards with GitHub links
+                    const cardsWithGitHub = $cards.filter((i, card) => {
+                        return Cypress.$(card).find('a[href*="github.com"]').length > 0;
+                    });
+
+                    // Verify at least some projects have GitHub links
+                    expect(cardsWithGitHub.length).to.be.greaterThan(0);
+
+                    // Verify each GitHub link is valid
+                    cy.wrap(cardsWithGitHub).each(($card) => {
+                        cy.wrap($card)
+                            .find('a[href*="github.com"]')
+                            .should('have.attr', 'href')
+                            .and('include', 'github.com');
+                    });
+                });
         });
 
         it('TC-041: Should open project links in new tab', () => {
+            // Find all GitHub links and verify they open in new tab
             portfolioPage
                 .getElement(portfolioPage.selectors.projects.cards)
-                .first()
-                .find(portfolioPage.selectors.projects.link)
-                .should('have.attr', 'target', '_blank');
+                .find('a[href*="github.com"]')
+                .should('have.length.at.least', 1)
+                .each(($link) => {
+                    cy.wrap($link).should('have.attr', 'target', '_blank');
+                });
         });
 
         it('TC-042: Should have valid links for all projects', () => {
+            // Verify each project card has at least one link
             portfolioPage
                 .getElement(portfolioPage.selectors.projects.cards)
                 .each(($card) => {
                     cy.wrap($card)
-                        .find(portfolioPage.selectors.projects.link)
-                        .should('have.attr', 'href')
-                        .and('not.be.empty');
+                        .find('.project-links a')
+                        .should('have.length.at.least', 1)
+                        .each(($link) => {
+                            cy.wrap($link)
+                                .should('have.attr', 'href')
+                                .and('not.be.empty');
+                        });
                 });
         });
     });

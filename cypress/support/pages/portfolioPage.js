@@ -12,7 +12,7 @@ class PortfolioPage extends BasePage {
     navbar: {
       logo: '.logo',
       navLinks: '.nav-links',
-      navLink: (text) => `.nav-links a:contains("${text}")`,
+      navLink: (text) => `.nav-links a[href="#${text.toLowerCase()}"]`,
       themeToggle: '#theme-toggle',
       themeIcon: '.theme-icon',
       mobileMenu: '#mobile-menu',
@@ -84,7 +84,8 @@ class PortfolioPage extends BasePage {
       description: '.project-desc',
       date: '.project-date',
       tags: '.tag',
-      link: '.project-link',
+      links: '.project-links',
+      githubLink: 'a[href*="github.com"]',
     },
 
     // Certifications Section
