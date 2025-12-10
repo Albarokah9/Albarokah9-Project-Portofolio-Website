@@ -32,6 +32,13 @@ describe('Portfolio - Content Validation Tests', () => {
                 'Bogor'
             );
         });
+
+        it('TC-070a: Should display profile image', () => {
+            portfolioPage.shouldBeVisible(portfolioPage.selectors.hero.profileImage);
+            portfolioPage.getElement(portfolioPage.selectors.hero.profileImage)
+                .should('have.attr', 'src')
+                .and('include', 'profile.jpg');
+        });
     });
 
     describe('Professional Summary Content', () => {
