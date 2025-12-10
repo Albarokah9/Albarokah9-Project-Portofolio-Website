@@ -312,7 +312,7 @@ portfolioPage.visitHomepage();
 ## 📈 Test Metrics
 
 ### Current Status
-- ✅ **Pass Rate**: 100% (12/12 smoke tests)
+- ✅ **Pass Rate**: 100% (125/125 tests passed)
 - ✅ **Coverage**: ~95% of features
 - ✅ **Execution Time**: ~5 minutes (full suite)
 - ✅ **Flakiness**: 0% (stable tests)
