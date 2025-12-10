@@ -9,10 +9,12 @@ on:
 jobs:
   e2e:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     strategy:
       matrix:
         node-version: [20.x]
+      fail-fast: false
 
     steps:
       - name: Checkout code
@@ -24,21 +26,52 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: npm
 
-      # 🔧 Workaround bug npm + rollup di Linux
-      - name: Clean install dependencies (npm install)
-        run: |
-          rm -rf node_modules package-lock.json
-          npm install
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Run Cypress E2E
+      # Workaround untuk bug npm + Rollup optional dependencies di Linux
+      # https://github.com/npm/cli/issues/4828
+      - name: Fix Rollup optional dependencies
+        run: npm install --force @rollup/rollup-linux-x64-gnu
+
+      - name: Run Cypress E2E Tests
         uses: cypress-io/github-action@v6
         with:
-          # Build dulu, lalu serve hasil build dengan preview
           build: npm run build
           start: npm run preview -- --host 0.0.0.0 --port 5173
           wait-on: 'http://127.0.0.1:5173'
+          wait-on-timeout: 60
           command: npm run test:e2e
-          # Kalau mau hanya 1 spec:
-          # command: npm run cypress:run:spec
         env:
           CYPRESS_BASE_URL: http://127.0.0.1:5173
+
+      # Upload screenshots dan videos jika test gagal
+      - name: Upload Cypress Screenshots
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: cypress-screenshots-${{ matrix.node-version }}
+          path: cypress/screenshots
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Upload Cypress Videos
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cypress-videos-${{ matrix.node-version }}
+          path: cypress/videos
+          if-no-files-found: ignore
+          retention-days: 7
+
+      # Upload test results untuk GitHub summary
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results-${{ matrix.node-version }}
+          path: |
+            cypress/results
+            mochawesome-report
+          if-no-files-found: ignore
+          retention-days: 30

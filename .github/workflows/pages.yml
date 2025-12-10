@@ -17,6 +17,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - name: Checkout
@@ -29,9 +30,12 @@ jobs:
           cache: npm
       
       - name: Install dependencies
-        run: |
-          rm -rf node_modules package-lock.json
-          npm install
+        run: npm ci
+      
+      # Workaround untuk bug npm + Rollup optional dependencies di Linux
+      # https://github.com/npm/cli/issues/4828
+      - name: Fix Rollup optional dependencies
+        run: npm install --force @rollup/rollup-linux-x64-gnu
       
       - name: Build
         run: npm run build
@@ -47,6 +51,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
