@@ -1,0 +1,685 @@
+
+> qa-portfolio@0.0.0 test:e2e
+> cypress run
+
+
+
+DevTools listening on ws://127.0.0.1:63304/devtools/browser/0c197c12-22c7-4906-aef9-2334c6f6714d
+
+====================================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        15.7.1                                                                         │
+  │ Browser:        Electron 138 (headless)                                                        │
+  │ Node Version:   v22.19.0 (C:\Program Files\nodejs\node.exe)                                    │
+  │ Specs:          6 found (01-smoke-tests.cy.js, 02-navigation-tests.cy.js, 03-theme-toggle-test │
+  │                 s.cy.js, 04-links-tests.cy.js, 05-responsive-tests.cy.js, 06-content-validatio │
+  │                 n-tests.cy.js)                                                                 │
+  │ Searched:       cypress/e2e/**/*.cy.{js,jsx,ts,tsx}                                            │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  01-smoke-tests.cy.js                                                            (1 of 6)
+
+
+  Portfolio - Smoke Tests
+    √ TC-001: Should load homepage successfully (5909ms)
+    √ TC-002: Should display all main sections (182ms)
+    √ TC-003: Should have correct page title (96ms)
+    √ TC-004: Should display hero section with correct information (91ms)
+    √ TC-005: Should display professional summary section (692ms)
+    √ TC-006: Should display experience timeline (698ms)
+    √ TC-007: Should display education section (728ms)
+    √ TC-008: Should display skills with multiple categories (693ms)
+    √ TC-009: Should display projects with cards (712ms)
+    √ TC-010: Should display certifications section (722ms)
+    √ TC-011: Should display contact section (700ms)
+    √ TC-012: Should display footer with copyright (97ms)
+
+
+  12 passing (12s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        12                                                                               │
+  │ Passing:      12                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  1                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     11 seconds                                                                       │
+  │ Spec Ran:     01-smoke-tests.cy.js                                                             │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  C:\Project-Portofolio-Website\cypress\screenshots\01-smoke-tests.cy.js\homepage-    (1280x9514)
+     loaded.png                                                                                     
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  02-navigation-tests.cy.js                                                       (2 of 6)
+
+
+  Portfolio - Navigation Tests
+    Desktop Navigation
+      1) TC-013: Should navigate to About section via nav link
+      2) TC-014: Should navigate to Experience section via nav link
+      3) TC-015: Should navigate to Education section via nav link
+      4) TC-016: Should navigate to Skills section via nav link
+      5) TC-017: Should navigate to Projects section via nav link
+      6) TC-018: Should navigate to Certifications section via nav link
+      7) TC-019: Should navigate to Contact section via nav link
+      8) TC-020: Should navigate through all sections sequentially
+    Mobile Navigation
+      √ TC-021: Should show hamburger menu on mobile (147ms)
+      √ TC-022: Should toggle mobile menu when clicked (266ms)
+      9) TC-023: Should navigate to sections via mobile menu
+    Scroll Navigation
+      √ TC-024: Should scroll to section when clicking nav link (969ms)
+      √ TC-025: Should maintain navbar visibility while scrolling (689ms)
+
+
+  4 passing (1m)
+  9 failing
+
+  1) Portfolio - Navigation Tests
+       Desktop Navigation
+         TC-013: Should navigate to About section via nav link:
+     AssertionError: Timed out retrying after 8000ms: expected 'http://localhost:5173/Albarokah9-Project-Portofolio-Website/' to include '#about'
+      at Context.eval (webpack://qa-portfolio/./cypress/e2e/02-navigation-tests.cy.js:15:21)
+
+  2) Portfolio - Navigation Tests
+       Desktop Navigation
+         TC-014: Should navigate to Experience section via nav link:
+     AssertionError: Timed out retrying after 8000ms: expected 'http://localhost:5173/Albarokah9-Project-Portofolio-Website/' to include '#experience'
+      at Context.eval (webpack://qa-portfolio/./cypress/e2e/02-navigation-tests.cy.js:23:21)
+
+  3) Portfolio - Navigation Tests
+       Desktop Navigation
+         TC-015: Should navigate to Education section via nav link:
+     AssertionError: Timed out retrying after 8000ms: expected 'http://localhost:5173/Albarokah9-Project-Portofolio-Website/' to include '#education'
+      at Context.eval (webpack://qa-portfolio/./cypress/e2e/02-navigation-tests.cy.js:29:21)
+
+  4) Portfolio - Navigation Tests
+       Desktop Navigation
+         TC-016: Should navigate to Skills section via nav link:
+     AssertionError: Timed out retrying after 8000ms: expected 'http://localhost:5173/Albarokah9-Project-Portofolio-Website/' to include '#skills'
+      at Context.eval (webpack://qa-portfolio/./cypress/e2e/02-navigation-tests.cy.js:35:21)
+
+  5) Portfolio - Navigation Tests
+       Desktop Navigation
+         TC-017: Should navigate to Projects section via nav link:
+     AssertionError: Timed out retrying after 8000ms: expected 'http://localhost:5173/Albarokah9-Project-Portofolio-Website/' to include '#projects'
+      at Context.eval (webpack://qa-portfolio/./cypress/e2e/02-navigation-tests.cy.js:41:21)
+
+  6) Portfolio - Navigation Tests
+       Desktop Navigation
+         TC-018: Should navigate to Certifications section via nav link:
+     AssertionError: Timed out retrying after 8000ms: expected 'http://localhost:5173/Albarokah9-Project-Portofolio-Website/' to include '#certifications'
+      at Context.eval (webpack://qa-portfolio/./cypress/e2e/02-navigation-tests.cy.js:47:21)
+
+  7) Portfolio - Navigation Tests
+       Desktop Navigation
+         TC-019: Should navigate to Contact section via nav link:
+     AssertionError: Timed out retrying after 8000ms: expected 'http://localhost:5173/Albarokah9-Project-Portofolio-Website/' to include '#contact'
+      at Context.eval (webpack://qa-portfolio/./cypress/e2e/02-navigation-tests.cy.js:53:21)
+
+  8) Portfolio - Navigation Tests
+       Desktop Navigation
+         TC-020: Should navigate through all sections sequentially:
+     AssertionError: Timed out retrying after 8000ms: expected 'http://localhost:5173/Albarokah9-Project-Portofolio-Website/' to include '#about'
+      at eval (webpack://qa-portfolio/./cypress/e2e/02-navigation-tests.cy.js:62:25)
+  at Array.forEach (<anonymous>)
+      at Context.eval (webpack://qa-portfolio/./cypress/e2e/02-navigation-tests.cy.js:60:21)
+
+  9) Portfolio - Navigation Tests
+       Mobile Navigation
+         TC-023: Should navigate to sections via mobile menu:
+     AssertionError: Timed out retrying after 8000ms: expected 'http://localhost:5173/Albarokah9-Project-Portofolio-Website/' to include '#about'
+      at Context.eval (webpack://qa-portfolio/./cypress/e2e/02-navigation-tests.cy.js:104:21)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        13                                                                               │
+  │ Passing:      4                                                                                │
+  │ Failing:      9                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  9                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     1 minute, 25 seconds                                                             │
+  │ Spec Ran:     02-navigation-tests.cy.js                                                        │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  C:\Project-Portofolio-Website\cypress\screenshots\02-navigation-tests.cy.js\Port     (1280x720)
+     folio - Navigation Tests -- Desktop Navigation -- TC-013 Should navigate to Abou               
+     t section via nav link (failed).png                                                            
+  -  C:\Project-Portofolio-Website\cypress\screenshots\02-navigation-tests.cy.js\Port     (1280x720)
+     folio - Navigation Tests -- Desktop Navigation -- TC-014 Should navigate to Expe               
+     rience section via nav link (failed).png                                                       
+  -  C:\Project-Portofolio-Website\cypress\screenshots\02-navigation-tests.cy.js\Port     (1280x720)
+     folio - Navigation Tests -- Desktop Navigation -- TC-015 Should navigate to Educ               
+     ation section via nav link (failed).png                                                        
+  -  C:\Project-Portofolio-Website\cypress\screenshots\02-navigation-tests.cy.js\Port     (1280x720)
+     folio - Navigation Tests -- Desktop Navigation -- TC-016 Should navigate to Skil               
+     ls section via nav link (failed).png                                                           
+  -  C:\Project-Portofolio-Website\cypress\screenshots\02-navigation-tests.cy.js\Port     (1280x720)
+     folio - Navigation Tests -- Desktop Navigation -- TC-017 Should navigate to Proj               
+     ects section via nav link (failed).png                                                         
+  -  C:\Project-Portofolio-Website\cypress\screenshots\02-navigation-tests.cy.js\Port     (1280x720)
+     folio - Navigation Tests -- Desktop Navigation -- TC-018 Should navigate to Cert               
+     ifications section via nav link (failed).png                                                   
+  -  C:\Project-Portofolio-Website\cypress\screenshots\02-navigation-tests.cy.js\Port     (1280x720)
+     folio - Navigation Tests -- Desktop Navigation -- TC-019 Should navigate to Cont               
+     act section via nav link (failed).png                                                          
+  -  C:\Project-Portofolio-Website\cypress\screenshots\02-navigation-tests.cy.js\Port     (1280x720)
+     folio - Navigation Tests -- Desktop Navigation -- TC-020 Should navigate through               
+      all sections sequentially (failed).png                                                        
+  -  C:\Project-Portofolio-Website\cypress\screenshots\02-navigation-tests.cy.js\Port     (1280x720)
+     folio - Navigation Tests -- Mobile Navigation -- TC-023 Should navigate to secti               
+     ons via mobile menu (failed).png                                                               
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  03-theme-toggle-tests.cy.js                                                     (3 of 6)
+
+
+  Portfolio - Theme Toggle Tests
+    √ TC-026: Should display theme toggle button (963ms)
+    √ TC-027: Should start with dark theme by default (173ms)
+    √ TC-028: Should toggle to light theme when clicked (6106ms)
+    √ TC-029: Should toggle back to dark theme (13943ms)
+    √ TC-030: Should persist theme after page reload (1341ms)
+    √ TC-031: Should maintain theme across navigation (2599ms)
+    √ TC-032: Should have proper contrast in light theme (1088ms)
+    √ TC-033: Should have proper contrast in dark theme (527ms)
+    √ TC-034: Should animate theme toggle button on hover (166ms)
+    √ TC-035: Should change theme icon when toggling (871ms)
+
+
+  10 passing (28s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        10                                                                               │
+  │ Passing:      10                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  2                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     28 seconds                                                                       │
+  │ Spec Ran:     03-theme-toggle-tests.cy.js                                                      │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  C:\Project-Portofolio-Website\cypress\screenshots\03-theme-toggle-tests.cy.js\li    (1280x9514)
+     ght-theme.png                                                                                  
+  -  C:\Project-Portofolio-Website\cypress\screenshots\03-theme-toggle-tests.cy.js\da    (1280x9514)
+     rk-theme.png                                                                                   
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  04-links-tests.cy.js                                                            (4 of 6)
+
+
+  Portfolio - External Links Tests
+    Hero Section Links
+      √ TC-036: Should have valid email link (950ms)
+      √ TC-037: Should have valid WhatsApp link (247ms)
+      √ TC-038: Should have valid LinkedIn link in hero (247ms)
+      √ TC-039: Should have valid GitHub link in hero (237ms)
+    Projects Section Links
+      √ TC-040: Should have GitHub links in project cards (1008ms)
+      √ TC-041: Should open project links in new tab (1051ms)
+      √ TC-042: Should have valid links for all projects (1058ms)
+    Certifications Section Links
+      √ TC-043: Should have certificate view buttons (900ms)
+      √ TC-044: Should open certificates in new tab (1265ms)
+      √ TC-045: Should have valid certificate URLs (1120ms)
+    Contact Section Links
+      √ TC-046: Should have email button with mailto link (2305ms)
+      √ TC-047: Should have GitHub link in contact section (3763ms)
+      √ TC-048: Should have LinkedIn link in contact section (1092ms)
+    Link Accessibility
+      1) TC-049: Should not have broken internal links
+      √ TC-050: Should have descriptive link text (no "click here") (264ms)
+
+
+  14 passing (28s)
+  1 failing
+
+  1) Portfolio - External Links Tests
+       Link Accessibility
+         TC-049: Should not have broken internal links:
+     AssertionError: Timed out retrying after 8000ms: expected 'http://localhost:5173/Albarokah9-Project-Portofolio-Website/' to include '#about'
+      at eval (webpack://qa-portfolio/./cypress/e2e/04-links-tests.cy.js:163:25)
+  at Array.forEach (<anonymous>)
+      at Context.eval (webpack://qa-portfolio/./cypress/e2e/04-links-tests.cy.js:161:21)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        15                                                                               │
+  │ Passing:      14                                                                               │
+  │ Failing:      1                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  1                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     27 seconds                                                                       │
+  │ Spec Ran:     04-links-tests.cy.js                                                             │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  C:\Project-Portofolio-Website\cypress\screenshots\04-links-tests.cy.js\Portfolio     (1280x720)
+      - External Links Tests -- Link Accessibility -- TC-049 Should not have broken i               
+     nternal links (failed).png                                                                     
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  05-responsive-tests.cy.js                                                       (5 of 6)
+
+
+  Portfolio - Responsive Design Tests
+    Desktop Large (1920x1080)
+      √ TC-051-Desktop Large: Should load all sections (1739ms)
+      √ TC-052-Desktop Large: Should have readable text (305ms)
+      1) TC-053-Desktop Large: Should not have horizontal scroll
+      √ TC-054-Desktop Large: Should display images properly (797ms)
+    Desktop (1366x768)
+      √ TC-051-Desktop: Should load all sections (372ms)
+      √ TC-052-Desktop: Should have readable text (166ms)
+      2) TC-053-Desktop: Should not have horizontal scroll
+      √ TC-054-Desktop: Should display images properly (764ms)
+    Laptop (1024x768)
+      √ TC-051-Laptop: Should load all sections (418ms)
+      √ TC-052-Laptop: Should have readable text (195ms)
+      3) TC-053-Laptop: Should not have horizontal scroll
+      √ TC-054-Laptop: Should display images properly (852ms)
+    Tablet (768x1024)
+      √ TC-051-Tablet: Should load all sections (377ms)
+      √ TC-052-Tablet: Should have readable text (175ms)
+      4) TC-053-Tablet: Should not have horizontal scroll
+      √ TC-054-Tablet: Should display images properly (786ms)
+    Mobile Large (414x896)
+      √ TC-051-Mobile Large: Should load all sections (361ms)
+      √ TC-052-Mobile Large: Should have readable text (189ms)
+      5) TC-053-Mobile Large: Should not have horizontal scroll
+      √ TC-054-Mobile Large: Should display images properly (799ms)
+    Mobile (375x667)
+      √ TC-051-Mobile: Should load all sections (377ms)
+      √ TC-052-Mobile: Should have readable text (242ms)
+      6) TC-053-Mobile: Should not have horizontal scroll
+      √ TC-054-Mobile: Should display images properly (777ms)
+    Mobile Small (320x568)
+      √ TC-051-Mobile Small: Should load all sections (290ms)
+      √ TC-052-Mobile Small: Should have readable text (125ms)
+      7) TC-053-Mobile Small: Should not have horizontal scroll
+      √ TC-054-Mobile Small: Should display images properly (778ms)
+    Mobile-Specific Tests
+      √ TC-055: Should show hamburger menu on mobile (219ms)
+      √ TC-056: Should hide desktop nav links on mobile (157ms)
+      √ TC-057: Should stack elements vertically on mobile (156ms)
+      8) TC-058: Should have touch-friendly button sizes
+      √ TC-059: Should display mobile-optimized contact info (211ms)
+      √ TC-060: Should have proper spacing on mobile (182ms)
+    Tablet-Specific Tests
+      √ TC-061: Should adapt grid layouts for tablet (778ms)
+      √ TC-062: Should maintain readability on tablet (360ms)
+    Desktop-Specific Tests
+      √ TC-063: Should show desktop navigation (188ms)
+      √ TC-064: Should hide hamburger menu on desktop (219ms)
+      √ TC-065: Should use multi-column layouts (823ms)
+    Orientation Tests
+      9) TC-066: Should work in landscape orientation
+      10) TC-067: Should work in portrait orientation
+
+
+  31 passing (46s)
+  10 failing
+
+  1) Portfolio - Responsive Design Tests
+       Desktop Large (1920x1080)
+         TC-053-Desktop Large: Should not have horizontal scroll:
+
+      AssertionError: expected 1905 to equal 1920
+      + expected - actual
+
+      -1905
+      +1920
+      
+      at Context.eval (webpack://qa-portfolio/./cypress/e2e/05-responsive-tests.cy.js:37:63)
+      at getRet (http://localhost:5173/__cypress/runner/cypress_runner.js:122460:20)
+      at tryCatcher (http://localhost:5173/__cypress/runner/cypress_runner.js:1777:23)
+      at Promise.attempt.Promise.try (http://localhost:5173/__cypress/runner/cypress_runner.js:4285:29)
+      at Context.thenFn (http://localhost:5173/__cypress/runner/cypress_runner.js:122471:66)
+      at Context.then (http://localhost:5173/__cypress/runner/cypress_runner.js:122722:21)
+
+  2) Portfolio - Responsive Design Tests
+       Desktop (1366x768)
+         TC-053-Desktop: Should not have horizontal scroll:
+
+      AssertionError: expected 1351 to equal 1366
+      + expected - actual
+
+      -1351
+      +1366
+      
+      at Context.eval (webpack://qa-portfolio/./cypress/e2e/05-responsive-tests.cy.js:37:63)
+      at getRet (http://localhost:5173/__cypress/runner/cypress_runner.js:122460:20)
+      at tryCatcher (http://localhost:5173/__cypress/runner/cypress_runner.js:1777:23)
+      at Promise.attempt.Promise.try (http://localhost:5173/__cypress/runner/cypress_runner.js:4285:29)
+      at Context.thenFn (http://localhost:5173/__cypress/runner/cypress_runner.js:122471:66)
+      at Context.then (http://localhost:5173/__cypress/runner/cypress_runner.js:122722:21)
+
+  3) Portfolio - Responsive Design Tests
+       Laptop (1024x768)
+         TC-053-Laptop: Should not have horizontal scroll:
+
+      AssertionError: expected 1009 to equal 1024
+      + expected - actual
+
+      -1009
+      +1024
+      
+      at Context.eval (webpack://qa-portfolio/./cypress/e2e/05-responsive-tests.cy.js:37:63)
+      at getRet (http://localhost:5173/__cypress/runner/cypress_runner.js:122460:20)
+      at tryCatcher (http://localhost:5173/__cypress/runner/cypress_runner.js:1777:23)
+      at Promise.attempt.Promise.try (http://localhost:5173/__cypress/runner/cypress_runner.js:4285:29)
+      at Context.thenFn (http://localhost:5173/__cypress/runner/cypress_runner.js:122471:66)
+      at Context.then (http://localhost:5173/__cypress/runner/cypress_runner.js:122722:21)
+
+  4) Portfolio - Responsive Design Tests
+       Tablet (768x1024)
+         TC-053-Tablet: Should not have horizontal scroll:
+
+      AssertionError: expected 753 to equal 768
+      + expected - actual
+
+      -753
+      +768
+      
+      at Context.eval (webpack://qa-portfolio/./cypress/e2e/05-responsive-tests.cy.js:37:63)
+      at getRet (http://localhost:5173/__cypress/runner/cypress_runner.js:122460:20)
+      at tryCatcher (http://localhost:5173/__cypress/runner/cypress_runner.js:1777:23)
+      at Promise.attempt.Promise.try (http://localhost:5173/__cypress/runner/cypress_runner.js:4285:29)
+      at Context.thenFn (http://localhost:5173/__cypress/runner/cypress_runner.js:122471:66)
+      at Context.then (http://localhost:5173/__cypress/runner/cypress_runner.js:122722:21)
+
+  5) Portfolio - Responsive Design Tests
+       Mobile Large (414x896)
+         TC-053-Mobile Large: Should not have horizontal scroll:
+
+      AssertionError: expected 399 to equal 414
+      + expected - actual
+
+      -399
+      +414
+      
+      at Context.eval (webpack://qa-portfolio/./cypress/e2e/05-responsive-tests.cy.js:37:63)
+      at getRet (http://localhost:5173/__cypress/runner/cypress_runner.js:122460:20)
+      at tryCatcher (http://localhost:5173/__cypress/runner/cypress_runner.js:1777:23)
+      at Promise.attempt.Promise.try (http://localhost:5173/__cypress/runner/cypress_runner.js:4285:29)
+      at Context.thenFn (http://localhost:5173/__cypress/runner/cypress_runner.js:122471:66)
+      at Context.then (http://localhost:5173/__cypress/runner/cypress_runner.js:122722:21)
+
+  6) Portfolio - Responsive Design Tests
+       Mobile (375x667)
+         TC-053-Mobile: Should not have horizontal scroll:
+
+      AssertionError: expected 368 to equal 375
+      + expected - actual
+
+      -368
+      +375
+      
+      at Context.eval (webpack://qa-portfolio/./cypress/e2e/05-responsive-tests.cy.js:37:63)
+      at getRet (http://localhost:5173/__cypress/runner/cypress_runner.js:122460:20)
+      at tryCatcher (http://localhost:5173/__cypress/runner/cypress_runner.js:1777:23)
+      at Promise.attempt.Promise.try (http://localhost:5173/__cypress/runner/cypress_runner.js:4285:29)
+      at Context.thenFn (http://localhost:5173/__cypress/runner/cypress_runner.js:122471:66)
+      at Context.then (http://localhost:5173/__cypress/runner/cypress_runner.js:122722:21)
+
+  7) Portfolio - Responsive Design Tests
+       Mobile Small (320x568)
+         TC-053-Mobile Small: Should not have horizontal scroll:
+
+      AssertionError: expected 313 to equal 320
+      + expected - actual
+
+      -313
+      +320
+      
+      at Context.eval (webpack://qa-portfolio/./cypress/e2e/05-responsive-tests.cy.js:37:63)
+      at getRet (http://localhost:5173/__cypress/runner/cypress_runner.js:122460:20)
+      at tryCatcher (http://localhost:5173/__cypress/runner/cypress_runner.js:1777:23)
+      at Promise.attempt.Promise.try (http://localhost:5173/__cypress/runner/cypress_runner.js:4285:29)
+      at Context.thenFn (http://localhost:5173/__cypress/runner/cypress_runner.js:122471:66)
+      at Context.then (http://localhost:5173/__cypress/runner/cypress_runner.js:122722:21)
+
+  8) Portfolio - Responsive Design Tests
+       Mobile-Specific Tests
+         TC-058: Should have touch-friendly button sizes:
+
+      Timed out retrying after 8000ms
+      + expected - actual
+
+      -26
+      +40
+      
+      at Context.eval (webpack://qa-portfolio/./cypress/e2e/05-responsive-tests.cy.js:82:43)
+      at <unknown> (http://localhost:5173/__cypress/runner/cypress_runner.js:121881:17)
+      at tryCatcher (http://localhost:5173/__cypress/runner/cypress_runner.js:1777:23)
+      at Promise.attempt.Promise.try (http://localhost:5173/__cypress/runner/cypress_runner.js:4285:29)
+      at Context.shouldFnWithCallback (http://localhost:5173/__cypress/runner/cypress_runner.js:121878:66)
+      at Context.shouldFn (http://localhost:5173/__cypress/runner/cypress_runner.js:121921:37)
+
+  9) Portfolio - Responsive Design Tests
+       Orientation Tests
+         TC-066: Should work in landscape orientation:
+     AssertionError: Timed out retrying after 8000ms: expected '<ul.nav-links>' to be 'visible'
+
+This element `<ul.nav-links>` is not visible because its ancestor has `position: fixed` CSS property and it is overflowed by other elements. How about scrolling to the element with `cy.scrollIntoView()`?
+      at PortfolioPage.shouldBeVisible (webpack://qa-portfolio/./cypress/support/pages/BasePage.js:47:34)
+      at PortfolioPage.verifyNavbarVisible (webpack://qa-portfolio/./cypress/support/pages/PortfolioPage.js:237:9)
+      at Context.eval (webpack://qa-portfolio/./cypress/e2e/05-responsive-tests.cy.js:151:26)
+
+  10) Portfolio - Responsive Design Tests
+       Orientation Tests
+         TC-067: Should work in portrait orientation:
+     AssertionError: Timed out retrying after 8000ms: expected '<ul.nav-links>' to be 'visible'
+
+This element `<ul.nav-links>` is not visible because its ancestor has `position: fixed` CSS property and it is overflowed by other elements. How about scrolling to the element with `cy.scrollIntoView()`?
+      at PortfolioPage.shouldBeVisible (webpack://qa-portfolio/./cypress/support/pages/BasePage.js:47:34)
+      at PortfolioPage.verifyNavbarVisible (webpack://qa-portfolio/./cypress/support/pages/PortfolioPage.js:237:9)
+      at Context.eval (webpack://qa-portfolio/./cypress/e2e/05-responsive-tests.cy.js:157:26)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        41                                                                               │
+  │ Passing:      31                                                                               │
+  │ Failing:      10                                                                               │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  10                                                                               │
+  │ Video:        false                                                                            │
+  │ Duration:     45 seconds                                                                       │
+  │ Spec Ran:     05-responsive-tests.cy.js                                                        │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  C:\Project-Portofolio-Website\cypress\screenshots\05-responsive-tests.cy.js\Port     (1280x720)
+     folio - Responsive Design Tests -- Desktop Large (1920x1080) -- TC-053-Desktop L               
+     arge Should not have horizontal scroll (failed).png                                            
+  -  C:\Project-Portofolio-Website\cypress\screenshots\05-responsive-tests.cy.js\Port     (1280x720)
+     folio - Responsive Design Tests -- Desktop (1366x768) -- TC-053-Desktop Should n               
+     ot have horizontal scroll (failed).png                                                         
+  -  C:\Project-Portofolio-Website\cypress\screenshots\05-responsive-tests.cy.js\Port     (1280x720)
+     folio - Responsive Design Tests -- Laptop (1024x768) -- TC-053-Laptop Should not               
+      have horizontal scroll (failed).png                                                           
+  -  C:\Project-Portofolio-Website\cypress\screenshots\05-responsive-tests.cy.js\Port     (1280x720)
+     folio - Responsive Design Tests -- Tablet (768x1024) -- TC-053-Tablet Should not               
+      have horizontal scroll (failed).png                                                           
+  -  C:\Project-Portofolio-Website\cypress\screenshots\05-responsive-tests.cy.js\Port     (1280x720)
+     folio - Responsive Design Tests -- Mobile Large (414x896) -- TC-053-Mobile Large               
+      Should not have horizontal scroll (failed).png                                                
+  -  C:\Project-Portofolio-Website\cypress\screenshots\05-responsive-tests.cy.js\Port     (1280x720)
+     folio - Responsive Design Tests -- Mobile (375x667) -- TC-053-Mobile Should not                
+     have horizontal scroll (failed).png                                                            
+  -  C:\Project-Portofolio-Website\cypress\screenshots\05-responsive-tests.cy.js\Port     (1280x720)
+     folio - Responsive Design Tests -- Mobile Small (320x568) -- TC-053-Mobile Small               
+      Should not have horizontal scroll (failed).png                                                
+  -  C:\Project-Portofolio-Website\cypress\screenshots\05-responsive-tests.cy.js\Port     (1280x720)
+     folio - Responsive Design Tests -- Mobile-Specific Tests -- TC-058 Should have t               
+     ouch-friendly button sizes (failed).png                                                        
+  -  C:\Project-Portofolio-Website\cypress\screenshots\05-responsive-tests.cy.js\Port     (1280x720)
+     folio - Responsive Design Tests -- Orientation Tests -- TC-066 Should work in la               
+     ndscape orientation (failed).png                                                               
+  -  C:\Project-Portofolio-Website\cypress\screenshots\05-responsive-tests.cy.js\Port     (1280x720)
+     folio - Responsive Design Tests -- Orientation Tests -- TC-067 Should work in po               
+     rtrait orientation (failed).png                                                                
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  06-content-validation-tests.cy.js                                               (6 of 6)
+
+
+  Portfolio - Content Validation Tests
+    Hero Section Content
+      √ TC-068: Should display correct name (1073ms)
+      √ TC-069: Should display correct job title (279ms)
+      √ TC-070: Should display location (246ms)
+    Professional Summary Content
+      √ TC-071: Should mention current company (900ms)
+      √ TC-072: Should mention key testing tools (870ms)
+      √ TC-073: Should mention testing methodologies (855ms)
+    Experience Section Content
+      √ TC-074: Should display current position (914ms)
+      √ TC-075: Should display company name (914ms)
+      √ TC-076: Should display work period (852ms)
+      √ TC-077: Should list responsibilities (857ms)
+      √ TC-078: Should display previous experience (843ms)
+    Education Section Content
+      √ TC-079: Should display bootcamp education (904ms)
+      √ TC-080: Should display education provider (864ms)
+      √ TC-081: Should display graduation year (863ms)
+    Skills Section Content
+      √ TC-082: Should have Manual Testing category (875ms)
+      √ TC-083: Should have Automation Testing category (901ms)
+      √ TC-084: Should list Cypress as a skill (864ms)
+      √ TC-085: Should list API testing tools (855ms)
+      √ TC-086: Should have at least 20 skills listed (892ms)
+    Projects Section Content
+      √ TC-087: Should display at least 3 projects (867ms)
+      √ TC-088: Should have project titles (977ms)
+      √ TC-089: Should have project descriptions (997ms)
+      √ TC-090: Should have technology tags (889ms)
+      √ TC-091: Should display project dates (866ms)
+    Certifications Section Content
+      √ TC-092: Should display at least 4 certifications (909ms)
+      √ TC-093: Should have QA bootcamp certificate (969ms)
+      √ TC-094: Should display certificate issuers (989ms)
+      √ TC-095: Should have certificate descriptions (1008ms)
+    Contact Section Content
+      1) TC-096: Should have call-to-action text
+      √ TC-097: Should have email button (899ms)
+      √ TC-098: Should have social media links (814ms)
+    Footer Content
+      √ TC-099: Should display copyright year (166ms)
+      √ TC-100: Should display author name (182ms)
+      √ TC-101: Should mention tech stack (162ms)
+
+
+  33 passing (38s)
+  1 failing
+
+  1) Portfolio - Content Validation Tests
+       Contact Section Content
+         TC-096: Should have call-to-action text:
+     AssertionError: Timed out retrying after 8000ms: expected '<div.glass-card.contact-card>' to contain 'Get In Touch'
+      at PortfolioPage.shouldContainText (webpack://qa-portfolio/./cypress/support/pages/BasePage.js:57:34)
+      at Context.eval (webpack://qa-portfolio/./cypress/e2e/06-content-validation-tests.cy.js:272:26)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        34                                                                               │
+  │ Passing:      33                                                                               │
+  │ Failing:      1                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  1                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     37 seconds                                                                       │
+  │ Spec Ran:     06-content-validation-tests.cy.js                                                │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  C:\Project-Portofolio-Website\cypress\screenshots\06-content-validation-tests.cy     (1280x720)
+     .js\Portfolio - Content Validation Tests -- Contact Section Content -- TC-096 Sh               
+     ould have call-to-action text (failed).png                                                     
+
+
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ ✔  01-smoke-tests.cy.js                     00:11       12       12        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✖  02-navigation-tests.cy.js                01:25       13        4        9        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  03-theme-toggle-tests.cy.js              00:28       10       10        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✖  04-links-tests.cy.js                     00:27       15       14        1        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✖  05-responsive-tests.cy.js                00:45       41       31       10        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✖  06-content-validation-tests.cy.js        00:37       34       33        1        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ✖  4 of 6 failed (67%)                      03:57      125      104       21        -        -  
+
