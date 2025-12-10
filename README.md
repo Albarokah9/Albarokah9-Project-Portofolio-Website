@@ -60,6 +60,11 @@ Just change the values inside the quotes:
 1.  Prepare your photo (square aspect ratio recommended).
 2.  Rename it to `profile.jpg`.
 3.  Replace the existing file at `public/images/profile.jpg`.
+63.
+64. #### 🟢 **Update Cover Letter**
+65. 1.  Prepare your Cover Letter/CV in PDF format.
+66. 2.  Rename it to `Cover_Letter_Albarokah.pdf`.
+67. 3.  Replace the existing file at `public/files/Cover_Letter_Albarokah.pdf`.
 
 ### 3. Deploy 🚀
 Push your changes to GitHub, and the CI/CD pipeline will automatically:
@@ -70,7 +75,7 @@ Push your changes to GitHub, and the CI/CD pipeline will automatically:
 
 ## 🧪 Test Automation (The "Cool" Part)
 
-This project includes **126 Automated E2E Tests** covering:
+This project includes **127 Automated E2E Tests** covering:
 *   Smoke Testing
 *   Navigation & Routing
 *   Responsive Design (Desktop, Tablet, Mobile)

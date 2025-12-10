@@ -28,6 +28,7 @@ class PortfolioPage extends BasePage {
       whatsapp: '.contact-info a[href^="https://wa.me"]',
       linkedinBtn: '.social-links-hero a[href*="linkedin"]',
       githubBtn: '.social-links-hero a[href*="github"]',
+      coverLetterBtn: '.social-links-hero a[href*="Cover_Letter"]',
       profileImage: '.hero-image img',
     },
 
