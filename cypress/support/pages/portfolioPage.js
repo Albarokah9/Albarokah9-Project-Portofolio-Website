@@ -136,7 +136,8 @@ class PortfolioPage extends BasePage {
    * @param {string} linkText - Text of the nav link
    */
   clickNavLink(linkText) {
-    this.click(this.selectors.navbar.navLink(linkText));
+    cy.get(this.selectors.navbar.navLink(linkText)).click({ force: true });
+    cy.wait(800); // Wait for smooth scroll animation
     return this;
   }
 
@@ -170,7 +171,7 @@ class PortfolioPage extends BasePage {
    */
   scrollToSection(sectionId) {
     this.scrollTo(`#${sectionId}`);
-    cy.wait(300); // Wait for smooth scroll
+    cy.wait(600); // Wait for smooth scroll
     return this;
   }
 
