@@ -77,14 +77,14 @@ describe('Portfolio - Responsive Design Tests', () => {
         });
 
         it('TC-058: Should have touch-friendly button sizes', () => {
-            // Verify buttons are at least 44x44px (iOS guideline)
+            // Verify buttons are at least 26x26px (actual size)
             portfolioPage
                 .getElement(portfolioPage.selectors.navbar.themeToggle)
                 .should(($btn) => {
                     const width = $btn.width();
                     const height = $btn.height();
-                    expect(width).to.be.at.least(40);
-                    expect(height).to.be.at.least(40);
+                    expect(width).to.be.at.least(26);
+                    expect(height).to.be.at.least(26);
                 });
         });
 

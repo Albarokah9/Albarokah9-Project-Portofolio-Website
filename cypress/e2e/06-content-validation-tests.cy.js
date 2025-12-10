@@ -270,7 +270,7 @@ describe('Portfolio - Content Validation Tests', () => {
 
         it('TC-096: Should have call-to-action text', () => {
             portfolioPage.shouldContainText(
-                portfolioPage.selectors.contact.card,
+                portfolioPage.selectors.contact.heading,
                 'Get In Touch'
             );
         });
