@@ -1,0 +1,158 @@
+/* ========================================= */
+/* MACOS / OS THEME SYSTEM                   */
+/* ========================================= */
+
+:root {
+    --os-header-h: 40px;
+    --os-radius: 12px;
+
+    /* Dark Mode Defaults (macOS Dark) */
+    --os-bg: #1e1e1e;
+    --os-header-bg: #2d2d2d;
+    --os-border: #444;
+    --os-text: #e0e0e0;
+    --os-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="light"] {
+    /* Light Mode Defaults (macOS Light) */
+    --os-bg: #ffffff;
+    --os-header-bg: #f1f1f1;
+    --os-border: #d1d1d1;
+    --os-text: #333;
+    --os-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Base Window Container */
+.os-window {
+    background: var(--os-bg);
+    border-radius: var(--os-radius);
+    border: 1px solid var(--os-border);
+    box-shadow: var(--os-shadow);
+    overflow: hidden;
+    margin-bottom: 60px;
+    /* Jarak antar window */
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 1000px;
+    /* Standar lebar window */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.os-window:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+}
+
+/* Window Header (Title Bar) */
+.window-header {
+    height: var(--os-header-h);
+    background: var(--os-header-bg);
+    border-bottom: 1px solid var(--os-border);
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    position: relative;
+    justify-content: center;
+    /* Title di tengah ala Mac */
+}
+
+/* Traffic Lights */
+.traffic-lights {
+    display: flex;
+    gap: 8px;
+    position: absolute;
+    left: 16px;
+}
+
+.t-light {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.t-red {
+    background: #ff5f56;
+    border: 1px solid #e0443e;
+}
+
+.t-yellow {
+    background: #ffbd2e;
+    border: 1px solid #dea123;
+}
+
+.t-green {
+    background: #27c93f;
+    border: 1px solid #1aab29;
+}
+
+/* Window Title */
+.window-title {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Window Body */
+.window-body {
+    padding: 30px;
+    color: var(--os-text);
+    overflow-y: auto;
+    /* Scroll kalau konten panjang */
+}
+
+/* RESPONSIVE FIXES */
+@media (max-width: 768px) {
+    .os-window {
+        border-radius: 16px;
+        /* Lebih rounded di mobile */
+        margin-bottom: 40px;
+    }
+
+    .window-header {
+        justify-content: space-between;
+        /* Title geser biar ga nabrak */
+    }
+
+    .traffic-lights {
+        position: static;
+        /* Biar ga absolute di mobile */
+    }
+
+    .window-title {
+        font-size: 0.85rem;
+    }
+}
+
+/* SPECIFIC SECTION OVERRIDES */
+
+/* 1. Finder (Projects) Style */
+.finder-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* 2. System Info (Skills) Style */
+.system-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* 3. Terminal Style (Experience override) */
+.terminal-window .window-body {
+    background: #1e1e1e;
+    /* Selalu dark untuk terminal experience */
+    font-family: 'Fira Code', monospace;
+    padding: 0;
+}
+
+[data-theme="light"] .terminal-window .window-body {
+    background: #fafafa;
+}

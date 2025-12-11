@@ -2,7 +2,7 @@ const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
   e2e: {
-    baseUrl: 'http://localhost:5173/',
+    baseUrl: 'http://localhost:5173/Albarokah9-Project-Portofolio-Website/',
     defaultCommandTimeout: 8000,
     pageLoadTimeout: 60000,
     requestTimeout: 15000,

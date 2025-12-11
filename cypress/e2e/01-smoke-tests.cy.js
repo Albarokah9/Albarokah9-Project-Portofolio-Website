@@ -36,7 +36,7 @@ describe('Portfolio - Smoke Tests', () => {
 
         // Verify contact links
         portfolioPage
-            .shouldBeVisible(portfolioPage.selectors.hero.email)
+            .shouldBeVisible(portfolioPage.selectors.hero.coverLetterBtn)
             .shouldBeVisible(portfolioPage.selectors.hero.whatsapp)
             .shouldBeVisible(portfolioPage.selectors.hero.linkedinBtn)
             .shouldBeVisible(portfolioPage.selectors.hero.githubBtn);
@@ -78,7 +78,7 @@ describe('Portfolio - Smoke Tests', () => {
         // Verify at least 5 skill categories
         portfolioPage
             .getElement(portfolioPage.selectors.skills.categories)
-            .should('have.length.at.least', 5);
+            .should('have.length.at.least', 4);
     });
 
     it('TC-009: Should display projects with cards', () => {

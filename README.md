@@ -1,7 +1,7 @@
 # 🚀 QA Automation Engineer Portfolio Template
 
 > **A professional, high-performance portfolio template designed specifically for QA Engineers.**  
-> Featuring Glassmorphism design, Dark/Light mode, and a **100% Automated Test Suite** ready to showcase your skills.
+> Featuring **macOS Desktop** design, Terminal Hero, and a **100% Automated Test Suite** ready to showcase your skills.
 
 [![Deployed with](https://img.shields.io/badge/Deployed%20with-GitHub%20Pages-blue?style=for-the-badge&logo=github)](https://pages.github.com/)
 [![Tested with](https://img.shields.io/badge/Tested%20with-Cypress-04C38E?style=for-the-badge&logo=cypress)](https://cypress.io)
@@ -17,7 +17,7 @@ This template is built by a QA, for QAs. It comes pre-packaged with a complete *
 
 *   ✅ **Showcase Your Automation Skills**: The repository itself proves you can write clean, maintainable test code.
 *   ✅ **CI/CD Ready**: Integrated with GitHub Actions. Every change runs the test suite automatically.
-*   ✅ **Modern Design**: Glassmorphism UI, Responsive, and Animations.
+*   ✅ **Interactive OS Design**: Complete with Terminal, Finder, and VS Code-style windows.
 *   ✅ **Easy to Customize**: No complex coding required. Just edit the content files.
 
 ---
@@ -75,7 +75,7 @@ Push your changes to GitHub, and the CI/CD pipeline will automatically:
 
 ## 🧪 Test Automation (The "Cool" Part)
 
-This project includes **127 Automated E2E Tests** covering:
+This project includes **120+ Automated E2E Tests** covering:
 *   Smoke Testing
 *   Navigation & Routing
 *   Responsive Design (Desktop, Tablet, Mobile)

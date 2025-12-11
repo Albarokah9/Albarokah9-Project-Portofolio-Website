@@ -1,4 +1,6 @@
 import './style.css'
+import './terminal.css'
+import './macos-theme.css'
 
 const projects = [
   {
@@ -8,7 +10,7 @@ const projects = [
     image: 'https://placehold.co/600x400/1a1a2e/00f2ea?text=JMeter+Performance',
     github: 'https://github.com/Albarokah9/Project_performance_test_jmeter',
     demo: '',
-    docs: '', 
+    docs: '',
     spreadsheet: '',
     tags: ['JMeter', 'Performance Testing', 'Load Testing']
   },
@@ -117,8 +119,8 @@ const renderProjects = () => {
   const projectList = document.querySelector('#project-list');
   if (!projectList) return;
 
-  projectList.innerHTML = projects.map(project => `
-    <div class="project-card">
+  projectList.innerHTML = projects.map((project, index) => `
+    <div class="project-card reveal" style="transition-delay: ${index * 100}ms">
       <img src="${project.image}" alt="${project.title}" class="project-image" />
       <div class="project-content">
         <div class="project-date">${project.date}</div>
@@ -129,19 +131,19 @@ const renderProjects = () => {
         </div>
         
         <div class="project-links">
-          ${project.demo ? `<a href="${project.demo}" target="_blank" class="btn primary" style="padding: 8px 16px; font-size: 0.9rem; margin-right: 10px;">▶ Watch Demo Video</a>` : ''}
+          ${project.demo ? `<a href="${project.demo}" target="_blank" class="btn primary">▶ Watch Demo Video</a>` : ''}
           
-          ${project.github ? `<a href="${project.github}" target="_blank" class="btn secondary" style="padding: 8px 16px; font-size: 0.9rem; margin-right: 10px;">View on GitHub</a>` : ''}
-
-          ${project.docs ? `<a href="${project.docs}" target="_blank" class="btn secondary" style="padding: 8px 16px; font-size: 0.9rem; margin-right: 10px;">View on Google Docs</a>` : ''}
+          ${project.github ? `<a href="${project.github}" target="_blank" class="btn secondary">View on GitHub</a>` : ''}
           
-          ${project.spreadsheet ? `<a href="${project.spreadsheet}" target="_blank" class="btn secondary" style="padding: 8px 16px; font-size: 0.9rem; margin-right: 10px;">View on Spreadsheet</a>` : ''}
-        
+          ${project.docs ? `<a href="${project.docs}" target="_blank" class="btn secondary">View on Google Docs</a>` : ''}
+          
+          ${project.spreadsheet ? `<a href="${project.spreadsheet}" target="_blank" class="btn secondary">View on Spreadsheet</a>` : ''}
         </div>
-        </div>
+      </div>
     </div>
   `).join('');
 };
+
 
 document.addEventListener('DOMContentLoaded', () => {
   renderProjects();
@@ -194,5 +196,23 @@ document.addEventListener('DOMContentLoaded', () => {
         behavior: 'smooth'
       });
     });
+  });
+
+  // SCROLL ANIMATION OBSERVER
+  const textObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  // Target elements to animate
+  const animatedElements = document.querySelectorAll('.bento-item, .project-card, .section-title, .experience-item, .education-item, .cert-card, .skill-category');
+
+  // Add base reveal class if not present
+  animatedElements.forEach(el => {
+    el.classList.add('reveal');
+    textObserver.observe(el);
   });
 });

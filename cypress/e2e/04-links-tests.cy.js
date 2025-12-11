@@ -8,12 +8,7 @@ describe('Portfolio - External Links Tests', () => {
     });
 
     describe('Hero Section Links', () => {
-        it('TC-036: Should have valid email link', () => {
-            portfolioPage
-                .getElement(portfolioPage.selectors.hero.email)
-                .should('have.attr', 'href')
-                .and('include', 'mailto:albarokahrifansahsutantoputra@gmail.com');
-        });
+        // TC-036: Email link removed from Hero (moved to Contact section)
 
         it('TC-037: Should have valid WhatsApp link', () => {
             portfolioPage.verifyExternalLink(
