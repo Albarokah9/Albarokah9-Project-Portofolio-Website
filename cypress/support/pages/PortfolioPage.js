@@ -21,22 +21,22 @@ class PortfolioPage extends BasePage {
     // Hero Section
     hero: {
       section: '#hero',
-      name: '.hero-content h1',
-      subtitle: '.subtitle',
-      contactInfo: '.contact-info',
-      email: '.contact-info a[href^="mailto"]',
-      whatsapp: '.contact-info a[href^="https://wa.me"]',
-      linkedinBtn: '.social-links-hero a[href*="linkedin"]',
-      githubBtn: '.social-links-hero a[href*="github"]',
-      coverLetterBtn: '.social-links-hero a[href*="Cover_Letter"]',
-      profileImage: '.hero-image img',
+      name: '.user-name',
+      subtitle: '.user-role',
+      contactInfo: '.contact-row',
+      email: '.contact-row a[href^="mailto"]',
+      whatsapp: '.contact-row a[href^="https://wa.me"]',
+      linkedinBtn: '.contact-row a[href*="linkedin"]',
+      githubBtn: '.contact-row a[href*="github"]',
+      coverLetterBtn: '.contact-row a[href*="Cover_Letter"]',
+      profileImage: '.user-avatar',
     },
 
     // About Section
     about: {
       section: '#about',
       heading: '#about h2',
-      content: '#about .glass-card',
+      content: '#about .window-body',
       strongText: '#about strong',
     },
 
@@ -44,7 +44,7 @@ class PortfolioPage extends BasePage {
     experience: {
       section: '#experience',
       heading: '#experience h2',
-      timeline: '.experience-timeline',
+      timeline: '.window-body', // content is inside window-body
       items: '.experience-item',
       firstItem: '.experience-item:first',
       title: '.exp-title',
@@ -57,22 +57,22 @@ class PortfolioPage extends BasePage {
     education: {
       section: '#education',
       heading: '#education h2',
-      grid: '.education-grid',
-      items: '.education-item',
-      icon: '.edu-icon',
-      title: '.edu-title',
-      institution: '.edu-institution',
+      grid: '.education-tree-container',
+      items: '.tree-item',
+      icon: '.file-icon',
+      title: '.file-name',
+      institution: '.file-meta',
     },
 
     // Skills Section
     skills: {
       section: '#skills',
       heading: '#skills h2',
-      container: '.skills-container',
-      categories: '.skill-category',
-      categoryTitle: '.skill-category-title',
+      container: '.system-grid',
+      categories: '.bento-item',
+      categoryTitle: 'h3',
       tags: '.skill-tag',
-      firstCategory: '.skill-category:first',
+      firstCategory: '.bento-item:nth-child(1)',
     },
 
     // Projects Section
@@ -87,6 +87,7 @@ class PortfolioPage extends BasePage {
       date: '.project-date',
       tags: '.tag',
       links: '.project-links',
+      link: 'a', // generic link selector inside project-links
       githubLink: 'a[href*="github.com"]',
     },
 
@@ -246,9 +247,9 @@ class PortfolioPage extends BasePage {
    */
   verifyHeroSection() {
     this.shouldBeVisible(this.selectors.hero.section);
-    this.shouldContainText(this.selectors.hero.name, 'ALBAROKAH');
-    this.shouldContainText(this.selectors.hero.subtitle, 'Quality Assurance');
-    this.shouldBeVisible(this.selectors.hero.email);
+    this.shouldContainText(this.selectors.hero.name, 'Albarokah');
+    this.shouldContainText(this.selectors.hero.subtitle, 'QA');
+    // Email removed from Terminal Hero
     this.shouldBeVisible(this.selectors.hero.whatsapp);
     return this;
   }

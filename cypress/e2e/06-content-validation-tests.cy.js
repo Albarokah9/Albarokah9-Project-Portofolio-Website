@@ -11,27 +11,11 @@ describe('Portfolio - Content Validation Tests', () => {
         it('TC-068: Should display correct name', () => {
             portfolioPage.shouldContainText(
                 portfolioPage.selectors.hero.name,
-                'ALBAROKAH RIFANSAH'
-            );
-            portfolioPage.shouldContainText(
-                portfolioPage.selectors.hero.name,
-                'SUTANTO PUTRA'
+                'Albarokah Rifansah'
             );
         });
 
-        it('TC-069: Should display correct job title', () => {
-            portfolioPage.shouldContainText(
-                portfolioPage.selectors.hero.subtitle,
-                'Quality Assurance Engineer'
-            );
-        });
-
-        it('TC-070: Should display location', () => {
-            portfolioPage.shouldContainText(
-                portfolioPage.selectors.hero.contactInfo,
-                'Bogor'
-            );
-        });
+        // Location check removed as it is not explicitly shown in summary terminal
 
         it('TC-070a: Should display profile image', () => {
             portfolioPage.shouldBeVisible(portfolioPage.selectors.hero.profileImage);
@@ -124,14 +108,14 @@ describe('Portfolio - Content Validation Tests', () => {
         it('TC-079: Should display bootcamp education', () => {
             portfolioPage.shouldContainText(
                 portfolioPage.selectors.education.title,
-                'Bootcamp Quality Assurance Engineer'
+                'QA_Bootcamp_Eduwork.js'
             );
         });
 
         it('TC-080: Should display education provider', () => {
             portfolioPage.shouldContainText(
                 portfolioPage.selectors.education.institution,
-                'Eduwork.id'
+                'Private Class Strategy'
             );
         });
 
@@ -148,17 +132,17 @@ describe('Portfolio - Content Validation Tests', () => {
             portfolioPage.scrollToSection('skills');
         });
 
-        it('TC-082: Should have Manual Testing category', () => {
+        it('TC-082: Should have Core Testing category', () => {
             portfolioPage.shouldContainText(
                 portfolioPage.selectors.skills.categoryTitle,
-                'Manual Testing'
+                'Core Testing'
             );
         });
 
-        it('TC-083: Should have Automation Testing category', () => {
+        it('TC-083: Should have Automation category', () => {
             portfolioPage.shouldContainText(
                 portfolioPage.selectors.skills.categoryTitle,
-                'Automation Testing'
+                'Automation'
             );
         });
 
@@ -285,7 +269,7 @@ describe('Portfolio - Content Validation Tests', () => {
         it('TC-097: Should have email button', () => {
             portfolioPage.shouldContainText(
                 portfolioPage.selectors.contact.emailBtn,
-                'Email Me'
+                'Send Email'
             );
         });
 

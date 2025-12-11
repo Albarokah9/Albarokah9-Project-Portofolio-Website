@@ -250,7 +250,7 @@
 
 | TC ID | Link Type | Selector | Expected URL Pattern |
 |-------|-----------|----------|----------------------|
-| TC-036 | Email | .hero-content a[href^="mailto"] | mailto:albarokahrifansahsutantoputra@gmail.com |
+| TC-036 | Email | .hero-content a[href^="mailto"] | N/A (Removed) |
 | TC-037 | WhatsApp | .hero-content a[href^="https://wa.me"] | wa.me/6289611515526 |
 | TC-038 | LinkedIn | .social-links-hero a[href*="linkedin"] | linkedin.com/in/albarokahrifansahsutantoputra |
 | TC-039 | GitHub | .social-links-hero a[href*="github"] | github.com/Albarokah9 |
@@ -412,9 +412,9 @@
 
 | TC ID | Field | Expected Value |
 |-------|-------|----------------|
-| TC-068 | Name | "ALBAROKAH RIFANSAH SUTANTO PUTRA" |
+| TC-068 | Name | "Albarokah Rifansah" |
 | TC-069 | Job Title | "Quality Assurance Engineer" |
-| TC-070 | Location | "Bogor" |
+| TC-070 | Location | N/A (Removed) |
 | TC-070a | Profile Image | Image Visible & Src Valid |
 
 ---
@@ -454,8 +454,8 @@
 
 | TC ID | Field | Expected Value |
 |-------|-------|----------------|
-| TC-079 | Bootcamp | "Bootcamp Quality Assurance Engineer" |
-| TC-080 | Provider | "Eduwork.id" |
+| TC-079 | Bootcamp | "QA_Bootcamp_Eduwork.js" |
+| TC-080 | Provider | "Private Class Strategy" |
 | TC-081 | Year | "2025" |
 
 ---
@@ -467,8 +467,8 @@
 
 | TC ID | Test Case | Expected Behavior |
 |-------|-----------|-------------------|
-| TC-082 | Manual Testing Category | Category exists |
-| TC-083 | Automation Testing Category | Category exists |
+| TC-082 | Core Testing Category | Category exists |
+| TC-083 | Automation Category | Category exists |
 | TC-084 | Cypress Skill | Listed in skills |
 | TC-085 | API Tools | Postman listed |
 | TC-086 | Total Skills | ≥ 20 skills |
@@ -512,7 +512,7 @@
 | TC ID | Field | Expected Value |
 |-------|-------|----------------|
 | TC-096 | CTA Text | "Get In Touch" |
-| TC-097 | Email Button | "Email Me" |
+| TC-097 | Email Button | "Send Email" |
 | TC-098 | Social Links | ≥ 2 links |
 
 ---
