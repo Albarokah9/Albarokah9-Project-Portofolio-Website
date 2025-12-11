@@ -8,7 +8,6 @@
 [![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-2088FF?style=for-the-badge&logo=github-actions)](https://github.com/features/actions)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)]()
 
-
 ## ✨ Why This Template?
 
 Most portfolio templates are just HTML/CSS. **This one is different.**
