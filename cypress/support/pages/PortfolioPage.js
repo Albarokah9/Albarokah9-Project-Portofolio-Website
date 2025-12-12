@@ -96,7 +96,7 @@ class PortfolioPage extends BasePage {
       section: '#certifications',
       heading: '#certifications h2',
       grid: '.certifications-grid',
-      cards: '.project-card.terminal-card', // Updated to match terminal cards
+      cards: '.certifications-grid .project-card.terminal-card', // More specific selector
       firstCard: '.certifications-grid .project-card:first',
       icon: '.term-icon', // Might not exist, better check title
       title: '.term-project-title',

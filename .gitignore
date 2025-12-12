@@ -17,6 +17,8 @@ screenshots/
 videos/
 *.mp4
 mochawesome-report/
+cypress-output.log
+final-test-results.log
 
 # Dependencies
 node_modules
