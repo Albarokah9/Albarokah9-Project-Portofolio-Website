@@ -167,6 +167,14 @@
     color: #4ec9b0;
     /* VS Code Cyan */
     margin: 5px 0;
+    text-align: left;
+    /* Fix: Override global h2 center */
+}
+
+@media (max-width: 768px) {
+    .user-role {
+        text-align: center;
+    }
 }
 
 .user-status {
