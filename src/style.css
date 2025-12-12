@@ -1082,13 +1082,16 @@ footer {
     padding: 20px;
   }
 
-  /* Fix button responsiveness in card */
-  .cert-card .cert-btn {
-    width: 100%;
-    margin-top: auto;
-    display: grid !important;
-    place-items: center !important;
+  /* Fix button responsiveness in card - ULTRA ROBUST */
+  body .cert-card .cert-btn {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
     text-align: center !important;
+    width: 100% !important;
+    margin-top: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
   .cert-icon {
