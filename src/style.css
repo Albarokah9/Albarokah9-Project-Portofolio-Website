@@ -1083,10 +1083,13 @@ footer {
   }
 
   /* Fix button responsiveness in card */
+  /* Fix button responsiveness in card */
   .cert-card .cert-btn {
     width: 100%;
     margin-top: auto;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .cert-icon {
