@@ -11,6 +11,14 @@ lerna-debug.log*
 cypress/screenshots
 cypress/videos
 cypress/downloads
+cypress/results
+cypress-result.json
+screenshots/
+videos/
+*.mp4
+mochawesome-report/
+cypress-output.log
+final-test-results.log
 
 # Dependencies
 node_modules

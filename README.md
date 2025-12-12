@@ -73,12 +73,13 @@ Push your changes to GitHub, and the CI/CD pipeline will automatically:
 
 ## 🧪 Test Automation (The "Cool" Part)
 
-This project includes **120+ Automated E2E Tests** covering:
+This project includes **123 Automated E2E Tests** covering:
 *   Smoke Testing
 *   Navigation & Routing
 *   Responsive Design (Desktop, Tablet, Mobile)
 *   Theme Toggle Functionality
 *   Content Validation
+*   External Links Validation
 
 **Run tests locally:**
 ```bash
@@ -87,7 +88,17 @@ npm run test:e2e
 
 # Open Test Runner (visual)
 npm run cypress:open
+
+# Record to Cypress Dashboard
+npx cypress run --record --key YOUR_RECORD_KEY
 ```
+
+**CI/CD Integration:**
+This project uses **GitHub Actions** to automatically run tests on every push:
+- ✅ Runs all 123 tests in parallel (2 containers)
+- ✅ Records results to Cypress Dashboard
+- ✅ Blocks deployment if tests fail
+- ✅ Provides detailed test reports and screenshots
 
 **Show this to recruiters!** It proves you practice what you preach.
 

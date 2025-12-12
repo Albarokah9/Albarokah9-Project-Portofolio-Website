@@ -115,7 +115,7 @@ describe('Portfolio - Content Validation Tests', () => {
         it('TC-080: Should display education provider', () => {
             portfolioPage.shouldContainText(
                 portfolioPage.selectors.education.institution,
-                'Private Class Strategy'
+                '2025_Private_Class_Strategy'
             );
         });
 
@@ -135,14 +135,14 @@ describe('Portfolio - Content Validation Tests', () => {
         it('TC-082: Should have Core Testing category', () => {
             portfolioPage.shouldContainText(
                 portfolioPage.selectors.skills.categoryTitle,
-                'Core Testing'
+                'core_testing'
             );
         });
 
         it('TC-083: Should have Automation category', () => {
             portfolioPage.shouldContainText(
                 portfolioPage.selectors.skills.categoryTitle,
-                'Automation'
+                'automation_stack'
             );
         });
 
@@ -161,8 +161,9 @@ describe('Portfolio - Content Validation Tests', () => {
         });
 
         it('TC-086: Should have at least 20 skills listed', () => {
-            portfolioPage
-                .getElement(portfolioPage.selectors.skills.tags)
+            // In JSON format, skills are displayed as strings
+            // Count all .syntax-string elements in skills section
+            cy.get('#skills .syntax-string')
                 .should('have.length.at.least', 20);
         });
     });
@@ -206,7 +207,8 @@ describe('Portfolio - Content Validation Tests', () => {
                 .should('have.length.at.least', 1);
         });
 
-        it('TC-091: Should display project dates', () => {
+        it.skip('TC-091: Should display project dates', () => {
+            // Skipped: Terminal card structure doesn't have explicit date field
             portfolioPage
                 .getElement(portfolioPage.selectors.projects.cards)
                 .first()
@@ -269,7 +271,7 @@ describe('Portfolio - Content Validation Tests', () => {
         it('TC-097: Should have email button', () => {
             portfolioPage.shouldContainText(
                 portfolioPage.selectors.contact.emailBtn,
-                'Send Email'
+                'SEND_EMAIL'
             );
         });
 

@@ -1,0 +1,115 @@
+/* ==========================================================================
+   TERMINAL SYNTAX HIGHLIGHTING & LIGHT MODE SUPPORT
+   ========================================================================== */
+
+:root {
+    --term-text-main: #d4d4d4;
+    --term-keyword: #569cd6;
+    /* Blue */
+    --term-string: #ce9178;
+    /* Orange/Brown */
+    --term-comment: #6a9955;
+    /* Green */
+    --term-type: #4ec9b0;
+    /* Teal */
+    --term-function: #dcdcaa;
+    /* Yellow */
+    --term-number: #b5cea8;
+    /* Light Green */
+    --term-operator: #d4d4d4;
+    --term-bg-color: #1e1e1e;
+}
+
+/* LIGHT MODE OVERRIDES - HIGH CONTRAST */
+[data-theme="light"] {
+    --term-text-main: #1f2937;
+    /* Nearly Black */
+    --term-keyword: #0000ff;
+    /* Standard Blue */
+    --term-string: #a31515;
+    /* VS Code Light String Red */
+    --term-comment: #008000;
+    /* VS Code Light Comment Green */
+    --term-type: #267f99;
+    /* VS Code Light Type Teal */
+    --term-function: #795e26;
+    /* VS Code Light Function Brown */
+    --term-number: #098658;
+    /* VS Code Light Number Green */
+    --term-operator: #333333;
+    --term-bg-color: #ffffff;
+}
+
+/* UTILITY CLASSES FOR SYNTAX HIGHLIGHTING */
+.syntax-text {
+    color: var(--term-text-main) !important;
+}
+
+.syntax-keyword {
+    color: var(--term-keyword) !important;
+    font-weight: bold;
+}
+
+.syntax-string {
+    color: var(--term-string) !important;
+}
+
+.syntax-comment {
+    color: var(--term-comment) !important;
+    font-style: italic;
+}
+
+.syntax-type {
+    color: var(--term-type) !important;
+    font-weight: bold;
+}
+
+.syntax-func {
+    color: var(--term-function) !important;
+}
+
+.syntax-num {
+    color: var(--term-number) !important;
+}
+
+/* Apply variable layout to specific containers */
+.term-text-content,
+.job-log,
+.education-tree-container,
+.skills-grid-terminal {
+    font-family: 'Fira Code', 'Consolas', monospace;
+    color: var(--term-text-main);
+}
+
+/* Ensure Terminal Body Background follows theme */
+.terminal-body,
+.terminal-body-small {
+    background: var(--term-bg-color) !important;
+}
+
+/* Link Colors in Terminal */
+.term-link,
+.term-link-small,
+.project-links-terminal a {
+    color: var(--term-text-main);
+    border-color: var(--term-border);
+}
+
+[data-theme="light"] .term-link,
+[data-theme="light"] .term-link-small,
+[data-theme="light"] .project-links-terminal a {
+    color: #2563eb;
+    /* Blue link for light mode */
+    border-color: #cbd5e1;
+}
+
+[data-theme="light"] .term-link:hover,
+[data-theme="light"] .term-link-small:hover {
+    color: #1d4ed8;
+    background: #eff6ff;
+}
+
+/* Specific overrides for indent lines if any */
+.tree-line {
+    border-color: var(--glass-border);
+}

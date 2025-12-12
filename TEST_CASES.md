@@ -5,12 +5,12 @@
 | Suite ID | Suite Name | Total Cases | Priority | Status |
 |----------|------------|-------------|----------|--------|
 | TS-01 | Smoke Tests | 12 | Critical | ✅ Active |
-| TS-02 | Navigation Tests | 25 | High | ✅ Active |
+| TS-02 | Navigation Tests | 13 | High | ✅ Active |
 | TS-03 | Theme Toggle Tests | 10 | High | ✅ Active |
 | TS-04 | External Links Tests | 15 | High | ✅ Active |
-| TS-05 | Responsive Design Tests | 17 | High | ✅ Active |
-| TS-06 | Content Validation Tests | 34 | Medium | ✅ Active |
-| **TOTAL** | **6 Test Suites** | **126** | - | - |
+| TS-05 | Responsive Design Tests | 41 | High | ✅ Active |
+| TS-06 | Content Validation Tests | 33 | Medium | ✅ Active |
+| **TOTAL** | **6 Test Suites** | **124** | - | - |
 
 ---
 
@@ -536,11 +536,13 @@
 
 | Metric | Target | Current |
 |--------|--------|---------|
-| Total Test Cases | 126 | 126 |
-| Automated | 100% | 126 |
-| Pass Rate | ≥95% | 100% |
+| Total Test Cases | 124 | 124 |
+| Automated | 100% | 124 |
+| Passing | ≥95% | 123 (99.2%) |
+| Pending | - | 1 (TC-091) |
+| Pass Rate | ≥95% | 99.2% |
 | Coverage | ≥90% | ~95% |
-| Execution Time | <5 min | ~5 min |
+| Execution Time | <5 min | ~2:49 min |
 
 ### Test Status Legend
 - ✅ **Pass**: Test executed successfully
