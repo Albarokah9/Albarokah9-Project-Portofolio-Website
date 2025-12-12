@@ -304,6 +304,14 @@
     .user-card {
         flex-direction: column;
         text-align: center;
+        align-items: center;
+    }
+
+    .user-info {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .contact-row {
