@@ -1071,6 +1071,14 @@ footer {
     padding: 20px;
   }
 
+  /* Fix button responsiveness in card */
+  .cert-card .cert-btn {
+    width: 100%;
+    max-width: 100%;
+    margin: 15px 0 0 0;
+    text-align: center;
+  }
+
   .cert-icon {
     font-size: 2rem;
   }
