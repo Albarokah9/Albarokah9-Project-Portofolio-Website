@@ -1,0 +1,114 @@
+/* ==========================================================================
+   RESPONSIVE DESIGN SYSTEM (TERMINAL & GRIDS)
+   ========================================================================== */
+
+/* TABLET & SMALL DESKTOP (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+
+    .certifications-grid,
+    .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        /* Decrease min width to fit 3 columns on tablet */
+    }
+}
+
+/* MOBILE LANDSCAPE & TABLET PORTRAIT (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    .terminal-header-small {
+        padding: 8px 10px;
+    }
+
+    .terminal-body-small {
+        padding: 15px;
+    }
+
+    .terminal-img-container {
+        height: 160px;
+        /* Slightly smaller images */
+    }
+
+    /* Force grids to single column or smaller chunks if space is tight */
+    .certifications-grid,
+    .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+    }
+}
+
+/* MOBILE PORTRAIT (max-width: 480px) */
+@media screen and (max-width: 480px) {
+
+    /* Global Container Padding Adjustment */
+    .section {
+        padding: 60px 0;
+    }
+
+    /* Grid becomes single column */
+    .certifications-grid,
+    .project-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        /* Full width cards */
+        padding: 0;
+    }
+
+    /* Terminal Card Adjustments for tiny screens */
+    .terminal-header-small {
+        flex-direction: row;
+        /* Keep row but maybe adjust contents */
+    }
+
+    .term-title-small {
+        font-size: 0.7rem;
+        max-width: 150px;
+        /* Ensure truncation works */
+    }
+
+    .terminal-body-small {
+        padding: 12px !important;
+    }
+
+    .cmd-line {
+        font-size: 0.75rem;
+        flex-wrap: wrap;
+        align-items: center;
+        line-height: 1.4;
+    }
+
+    .cmd-line .cmd {
+        word-break: break-all;
+        /* Break long commands */
+    }
+
+    .terminal-img-container {
+        height: 140px;
+    }
+
+    .output-content {
+        font-size: 0.85rem;
+    }
+
+    /* Project Links Stack */
+    .project-links-terminal {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .term-link-small {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 8px 12px;
+        border-radius: 4px;
+        justify-content: center;
+    }
+
+    /* Contact Section Override */
+    #contact .terminal-body {
+        padding: 20px !important;
+        /* Override inline style */
+    }
+
+    .contact-actions {
+        width: 100% !important;
+    }
+}

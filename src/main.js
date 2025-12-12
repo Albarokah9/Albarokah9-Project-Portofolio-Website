@@ -1,6 +1,9 @@
 import './style.css'
 import './terminal.css'
 import './macos-theme.css'
+import './terminal-custom.css'
+import './terminal-responsive.css'
+import './terminal-syntax.css'
 
 const projects = [
   {
@@ -120,25 +123,48 @@ const renderProjects = () => {
   if (!projectList) return;
 
   projectList.innerHTML = projects.map((project, index) => `
-    <div class="project-card reveal" style="transition-delay: ${index * 100}ms">
-      <img src="${project.image}" alt="${project.title}" class="project-image" />
-      <div class="project-content">
-        <div class="project-date">${project.date}</div>
-        <h3 class="project-title">${project.title}</h3>
-        <p class="project-desc">${project.description}</p>
-        <div class="project-tags">
-          ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+    <div class="project-card terminal-card reveal" style="transition-delay: ${index * 100}ms">
+      
+      <div class="terminal-header-small">
+        <div class="term-dots">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
         </div>
+        <div class="term-title-small">root@portfolio: ~/${project.title.substring(0, 15).replace(/\s+/g, '_').toLowerCase()}...</div>
+      </div>
+
+      <div class="terminal-body-small">
         
-        <div class="project-links">
-          ${project.demo ? `<a href="${project.demo}" target="_blank" class="btn primary">▶ Watch Demo Video</a>` : ''}
-          
-          ${project.github ? `<a href="${project.github}" target="_blank" class="btn secondary">View on GitHub</a>` : ''}
-          
-          ${project.docs ? `<a href="${project.docs}" target="_blank" class="btn secondary">View on Google Docs</a>` : ''}
-          
-          ${project.spreadsheet ? `<a href="${project.spreadsheet}" target="_blank" class="btn secondary">View on Spreadsheet</a>` : ''}
+        <div class="cmd-line">
+           <span class="prompt">➜</span> <span class="path">~/projects</span> <span class="cmd">view_info --target "${project.title.substring(0, 10)}..."</span>
         </div>
+
+        <div class="terminal-img-container">
+           <img src="${project.image}" alt="${project.title}" class="terminal-project-image" />
+        </div>
+
+        <div class="output-content">
+          <div class="term-project-title"># ${project.title}</div>
+          <div class="term-project-desc" style="color: #6a9955; margin-bottom: 5px;">// ${project.date}</div>
+          <p class="term-project-desc" style="margin-bottom: 15px;">/* ${project.description} */</p>
+          
+          <div class="term-tags-line">
+             <span class="path">topics:</span> [ ${project.tags.map(tag => `<span class="term-tag">"${tag}"</span>`).join(', ')} ]
+          </div>
+        </div>
+
+        <div class="cmd-line" style="margin-top: auto; padding-top: 15px;">
+           <span class="prompt">➜</span> <span class="cmd">./execute_action.sh</span>
+        </div>
+
+        <div class="project-links-terminal">
+          ${project.demo ? `<a href="${project.demo}" target="_blank" class="term-link-small">[ ▶ Run_Demo ]</a>` : ''}
+          ${project.github ? `<a href="${project.github}" target="_blank" class="term-link-small">[ < > Source_Code ]</a>` : ''}
+          ${project.docs ? `<a href="${project.docs}" target="_blank" class="term-link-small">[ 📄 Read_Docs ]</a>` : ''}
+          ${project.spreadsheet ? `<a href="${project.spreadsheet}" target="_blank" class="term-link-small">[ 📊 Open_Sheet ]</a>` : ''}
+        </div>
+
       </div>
     </div>
   `).join('');

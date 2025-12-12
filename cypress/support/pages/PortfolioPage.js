@@ -36,43 +36,43 @@ class PortfolioPage extends BasePage {
     about: {
       section: '#about',
       heading: '#about h2',
-      content: '#about .window-body',
-      strongText: '#about strong',
+      content: '#about .terminal-body',
+      strongText: '#about .syntax-type, #about .syntax-string', // Syntax highlighted text
     },
 
     // Experience Section
     experience: {
       section: '#experience',
       heading: '#experience h2',
-      timeline: '.window-body', // content is inside window-body
-      items: '.experience-item',
-      firstItem: '.experience-item:first',
-      title: '.exp-title',
-      company: '.exp-company',
-      date: '.exp-date',
-      responsibilities: '.exp-responsibilities li',
+      timeline: '.terminal-body',
+      items: '.job-log',
+      firstItem: '.job-log:first-child',
+      title: '.job-log h3',
+      company: '.job-log .syntax-text',
+      date: '.job-log .syntax-string',
+      responsibilities: '.term-list li',
     },
 
     // Education Section
     education: {
       section: '#education',
       heading: '#education h2',
-      grid: '.education-tree-container',
-      items: '.tree-item',
-      icon: '.file-icon',
-      title: '.file-name',
-      institution: '.file-meta',
+      grid: '#education .terminal-body',
+      items: '#education .syntax-keyword', // Folder names in tree
+      icon: '#education .syntax-string', // File names
+      title: '#education .syntax-string',
+      institution: '#education .syntax-keyword', // Changed to keyword for folder names
     },
 
     // Skills Section
     skills: {
       section: '#skills',
       heading: '#skills h2',
-      container: '.system-grid',
-      categories: '.bento-item',
-      categoryTitle: 'h3',
-      tags: '.skill-tag',
-      firstCategory: '.bento-item:nth-child(1)',
+      container: '.skills-grid-terminal',
+      categories: '.json-skill-block',
+      categoryTitle: '.syntax-keyword',
+      tags: '.syntax-string', // Individual skills are strings in JSON
+      firstCategory: '.json-skill-block:nth-child(1)',
     },
 
     // Projects Section
@@ -82,12 +82,12 @@ class PortfolioPage extends BasePage {
       grid: '.project-grid',
       cards: '.project-card',
       firstCard: '.project-card:first',
-      title: '.project-title',
-      description: '.project-desc',
-      date: '.project-date',
-      tags: '.tag',
-      links: '.project-links',
-      link: 'a', // generic link selector inside project-links
+      title: '.term-project-title', // Updated for terminal card
+      description: '.output-content .term-project-desc',
+      date: '.output-content div', // approximate, or use specific class if available
+      tags: '.term-tag',
+      links: '.project-links-terminal',
+      link: 'a',
       githubLink: 'a[href*="github.com"]',
     },
 
@@ -96,24 +96,24 @@ class PortfolioPage extends BasePage {
       section: '#certifications',
       heading: '#certifications h2',
       grid: '.certifications-grid',
-      cards: '.cert-card',
-      firstCard: '.cert-card:first',
-      icon: '.cert-icon',
-      title: '.cert-title',
-      issuer: '.cert-issuer',
-      description: '.cert-desc',
-      button: '.cert-btn',
+      cards: '.project-card.terminal-card', // Updated to match terminal cards
+      firstCard: '.certifications-grid .project-card:first',
+      icon: '.term-icon', // Might not exist, better check title
+      title: '.term-project-title',
+      issuer: '.term-project-desc',
+      description: '.term-project-desc',
+      button: '.term-link-small', // "Open_Certificate" link
     },
 
     // Contact Section
     contact: {
       section: '#contact',
       heading: '#contact h2',
-      card: '.contact-card',
-      emailBtn: '.contact-card .btn.primary',
-      socialLinks: '.social-links a',
-      githubLink: '.social-links a[href*="github"]',
-      linkedinLink: '.social-links a[href*="linkedin"]',
+      card: '.terminal-container',
+      emailBtn: '#contact a[href^="mailto"]',
+      socialLinks: '#contact .contact-actions a',
+      githubLink: '#contact a[href*="github"]',
+      linkedinLink: '#contact a[href*="linkedin"]',
     },
 
     // Footer
