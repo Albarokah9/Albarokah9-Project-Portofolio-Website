@@ -831,10 +831,15 @@ h2 {
 }
 
 .cert-btn {
-  display: inline-block;
-  padding: 10px 20px;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100%;
+  padding: 12px 0;
   font-size: 0.9rem;
-  margin-top: 5px;
+  margin-top: auto;
+  font-weight: 700;
+  text-align: center;
 }
 
 /* Contact */
@@ -1082,12 +1087,7 @@ footer {
     padding: 20px;
   }
 
-  /* Fix button responsiveness in card */
-  .cert-card .cert-btn {
-    width: 100%;
-    margin-top: auto;
-    text-align: center;
-  }
+  /* Button responsiveness inherited from global .cert-btn */
 
   .cert-icon {
     font-size: 2rem;
