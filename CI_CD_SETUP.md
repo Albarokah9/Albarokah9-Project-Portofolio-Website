@@ -24,7 +24,7 @@ This project uses **GitHub Actions** for Continuous Integration and **Cypress Da
 4. Add the following secret:
 
    **Name:** `CYPRESS_RECORD_KEY`  
-   **Value:** `3805c47c-eb3d-4118-a325-06b38a4f8525`
+   **Value:** `YOUR_CYPRESS_RECORD_KEY`
 
 5. Click **Add secret**
 
@@ -43,7 +43,7 @@ The workflow file is already created at `.github/workflows/cypress.yml`
 Before pushing, you can test the recording locally:
 
 ```bash
-npx cypress run --record --key 3805c47c-eb3d-4118-a325-06b38a4f8525
+npx cypress run --record --key YOUR_CYPRESS_RECORD_KEY
 ```
 
 This will:

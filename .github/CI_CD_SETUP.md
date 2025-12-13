@@ -47,7 +47,7 @@ Required secrets in GitHub repo → Settings → Secrets → Actions:
 To record tests locally to Cypress Cloud:
 
 ```bash
-npx cypress run --record --key 3805c47c-eb3d-4118-a325-06b38a4f8525
+npx cypress run --record --key YOUR_CYPRESS_RECORD_KEY
 ```
 
 ### 3. View Results
