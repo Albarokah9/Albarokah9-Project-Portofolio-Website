@@ -58,11 +58,12 @@ Just change the values inside the quotes:
 1.  Prepare your photo (square aspect ratio recommended).
 2.  Rename it to `profile.jpg`.
 3.  Replace the existing file at `public/images/profile.jpg`.
-63.
-64. #### 🟢 **Update Cover Letter**
-65. 1.  Prepare your Cover Letter/CV in PDF format.
-66. 2.  Rename it to `Cover_Letter_Albarokah.pdf`.
-67. 3.  Replace the existing file at `public/files/Cover_Letter_Albarokah.pdf`.
+
+#### 🟢 **Update Cover Letter**
+1.  Prepare your Cover Letter/CV in PDF format.
+2.  Rename it to `Cover_Letter.pdf`.
+3.  Replace the existing file at `public/files/Cover_Letter.pdf`.
+4.  Update the link in `index.html` to point to your new file if you changed the name.
 
 ### 3. Deploy 🚀
 Push your changes to GitHub, and the CI/CD pipeline will automatically:
@@ -92,6 +93,7 @@ npm run cypress:open
 # Record to Cypress Dashboard
 npx cypress run --record --key YOUR_RECORD_KEY
 ```
+> **Note:** See [CI_CD_SETUP.md](CI_CD_SETUP.md) for instructions on how to get your Record Key and set up GitHub Secrets.
 
 **CI/CD Integration:**
 This project uses **GitHub Actions** to automatically run tests on every push:

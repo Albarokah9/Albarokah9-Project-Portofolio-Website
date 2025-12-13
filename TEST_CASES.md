@@ -254,7 +254,7 @@
 | TC-037 | WhatsApp | .hero-content a[href^="https://wa.me"] | wa.me/6289611515526 |
 | TC-038 | LinkedIn | .social-links-hero a[href*="linkedin"] | linkedin.com/in/albarokahrifansahsutantoputra |
 | TC-039 | GitHub | .social-links-hero a[href*="github"] | github.com/Albarokah9 |
-| TC-039a | Cover Letter | .social-links-hero a[href*="Cover_Letter"] | files/Cover_Letter_Albarokah.pdf |
+| TC-039a | Cover Letter | .social-links-hero a[href*="Cover_Letter"] | files/Cover_Letter.pdf |
 
 **Test Steps** (for each):
 1. Visit homepage
