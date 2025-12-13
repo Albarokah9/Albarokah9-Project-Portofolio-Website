@@ -30,7 +30,7 @@
 You mentioned you already set up the secret. Verify:
 
 1. Go to: `https://github.com/YOUR_USERNAME/YOUR_REPO/settings/secrets/actions`
-2. Confirm `CYPRESS_RECORD_KEY` exists with value: `3805c47c-eb3d-4118-a325-06b38a4f8525`
+2. Confirm `CYPRESS_RECORD_KEY` exists with value: `YOUR_CYPRESS_RECORD_KEY`
 
 ### Step 2: Push Changes to GitHub
 
