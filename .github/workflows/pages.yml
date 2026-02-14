@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -15,31 +15,69 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Job Test harus didefinisikan secara terpisah atau referensi ke workflow lain jika memungkinkan.
+  # Namun GitHub Actions standar tidak support `needs` lintas workflow file secara langsung.
+  # Kita asumsikan cypress.yml akan dijalankan terpisah, TAPI untuk keamanan di pages.yml
+  # kita bisa tambahkan step test DULU di file ini atau biarkan terpisah.
+  #
+  # REVISI: User meminta flow Main = Test -> Deploy.
+  # Karena `cypress.yml` dan `pages.yml` adalah file terpisah, kita tidak bisa pake `needs: cypress-run`.
+  # Solusi terbaik: Gabungkan Test & Deploy di satu file ATAU biarkan terpisah tapi Deploy hanya trigger kalau Test sukses (via workflow_run).
+  #
+  # TAPI, untuk simplifikasi sesuai request "standar script", kita akan biarkan pages.yml STAND ALONE
+  # tapi kita tambahkan step "Test" di dalam pages.yml SEBELUM build,
+  # ATAU (lebih baik) kita ubah trigger pages.yml menjadi `workflow_run` dari `cypress.yml`.
+
+  # OPSI TERBAIK SESUAI REQUEST USER: "biarkan configurasi... jalan kan saja standar script"
+  # User ingin sesimple mungkin. Saya akan tambahkan Job Test di SINI sebelum Build.
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Fix Rollup
+        run: npm install --force @rollup/rollup-linux-x64-gnu
+      - name: Run Cypress
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm run dev
+          wait-on: "http://localhost:5173"
+          command: npm run test:e2e
+
   build:
+    needs: test
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
-      
+
       - name: Install dependencies
         run: npm ci
-      
+
       # Workaround untuk bug npm + Rollup optional dependencies di Linux
       # https://github.com/npm/cli/issues/4828
       - name: Fix Rollup optional dependencies
         run: npm install --force @rollup/rollup-linux-x64-gnu
-      
+
       - name: Build
         run: npm run build
-      
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

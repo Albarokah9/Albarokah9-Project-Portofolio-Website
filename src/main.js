@@ -27,7 +27,16 @@ const renderProjects = () => {
         </div>
 
         <div class="terminal-img-container">
-           <img src="${project.image}" alt="${project.title}" class="terminal-project-image" />
+           ${project.icons || project.customIcons ?
+      `<div class="project-logos">
+                ${project.icons ? project.icons.map(icon => `<i class="${icon} tech-icon"></i>`).join('') : ''}
+                ${project.customIcons ? project.customIcons.map(icon => `<img src="${icon.url}" alt="${icon.name}" class="tech-icon-custom" title="${icon.name}">`).join('') : ''}
+              </div>`
+      :
+      `<div class="project-placeholder">
+         <span>${project.shortLabel || project.title}</span>
+       </div>`
+    }
         </div>
 
         <div class="output-content">

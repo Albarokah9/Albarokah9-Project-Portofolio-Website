@@ -13,8 +13,9 @@
 Most portfolio templates are just HTML/CSS. **This one is different.**
 This template is built by a QA, for QAs. It comes pre-packaged with a complete **Cypress E2E Testing Framework**.
 
-*   ✅ **Showcase Your Automation Skills**: The repository itself proves you can write clean, maintainable test code.
-*   ✅ **CI/CD Ready**: Integrated with GitHub Actions. Every change runs the test suite automatically.
+*   ✅ **Showcase Your Automation Skills**: The repository proves you can write clean, maintainable test code with **Page Object Models**.
+*   ✅ **CI/CD Ready**: Integrated with **GitHub Actions** (Artifacts & Reporting). Every change runs the test suite automatically.
+*   ✅ **Custom Commands**: Encapsulated logic for resilient testing.
 *   ✅ **Interactive OS Design**: Complete with Terminal, Finder, and VS Code-style windows.
 *   ✅ **Easy to Customize**: No complex coding required. Just edit the content files.
 
@@ -97,10 +98,9 @@ npx cypress run --record --key YOUR_RECORD_KEY
 
 **CI/CD Integration:**
 This project uses **GitHub Actions** to automatically run tests on every push:
-- ✅ Runs all 123 tests in parallel (2 containers)
-- ✅ Records results to Cypress Dashboard
+- ✅ Runs all 123 tests on standard Cypress CLI
 - ✅ Blocks deployment if tests fail
-- ✅ Provides detailed test reports and screenshots
+- ✅ Provides detailed test reports and screenshots via **GitHub Artifacts**
 
 **Show this to recruiters!** It proves you practice what you preach.
 
