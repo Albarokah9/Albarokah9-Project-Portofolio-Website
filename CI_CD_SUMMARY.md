@@ -6,9 +6,9 @@
 - **File:** `.github/workflows/cypress.yml`
 - **Status:** ✅ Ready to use
 - **Features:**
-  - Runs on every push and pull request
-  - Parallel execution (2 containers)
-  - Cypress Dashboard integration
+  - Runs on push/PR to `main` & `develop`
+  - Standard execution (Single container)
+  - **Artifact Uploads**: Screenshots & Videos for debugging
   - Vite dev server support
 
 ### 2. **Documentation Updated**
@@ -69,7 +69,7 @@ git push origin main
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│  1. You push code to GitHub                         │
+│  1. You push code to GitHub (main/develop)          │
 └─────────────────────────────────────────────────────┘
                       ↓
 ┌─────────────────────────────────────────────────────┐
@@ -78,22 +78,21 @@ git push origin main
                       ↓
 ┌─────────────────────────────────────────────────────┐
 │  3. Ubuntu runner starts                            │
-│     - Installs Node.js 22                           │
+│     - Installs Node.js 20                           │
 │     - Installs dependencies                         │
 │     - Starts Vite dev server                        │
 └─────────────────────────────────────────────────────┘
                       ↓
 ┌─────────────────────────────────────────────────────┐
-│  4. Cypress runs 124 tests in parallel              │
-│     Container 1: ~62 tests                          │
-│     Container 2: ~62 tests                          │
+│  4. Cypress runs all tests (Standard Mode)          │
+│     - Executes `npm run test:e2e`                   │
+│     - No Cloud Recording                            │
 └─────────────────────────────────────────────────────┘
                       ↓
 ┌─────────────────────────────────────────────────────┐
-│  5. Results uploaded to Cypress Dashboard           │
-│     - Test results                                  │
-│     - Video recordings                              │
-│     - Screenshots (if failures)                     │
+│  5. Artifacts Uploaded                              │
+│     - `cypress-videos` (Always)                     │
+│     - `cypress-screenshots` (If Failed)             │
 └─────────────────────────────────────────────────────┘
                       ↓
 ┌─────────────────────────────────────────────────────┐

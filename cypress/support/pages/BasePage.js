@@ -17,6 +17,7 @@ class BasePage {
      * @param {string} selector - CSS selector
      */
     getElement(selector) {
+        // Showcase: We use standard cy.get here, but complex logic could use cy.getBySel
         return cy.get(selector);
     }
 

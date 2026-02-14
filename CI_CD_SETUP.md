@@ -16,27 +16,20 @@ This project uses **GitHub Actions** for Continuous Integration and **Cypress Da
 
 ## 🔧 Setup Steps
 
-### Step 1: Configure GitHub Secrets
+### Step 1: Configure GitHub Secrets (Optional)
 
-1. Go to your GitHub repository
-2. Navigate to **Settings** → **Secrets and variables** → **Actions**
-3. Click **New repository secret**
-4. Add the following secret:
-
-   **Name:** `CYPRESS_RECORD_KEY`  
-   **Value:** `YOUR_CYPRESS_RECORD_KEY`
-
-5. Click **Add secret**
+Authentication secrets are handled automatically by GitHub Actions.
+`CYPRESS_RECORD_KEY` is no longer required for this workflow but can be kept for local recording.
 
 ### Step 2: Verify Workflow File
 
-The workflow file is already created at `.github/workflows/cypress.yml`
+The workflow file is at `.github/workflows/cypress.yml`
 
 **Key Configuration:**
-- **Trigger:** Runs on every `push` and `pull_request`
-- **Parallel Execution:** 2 containers for faster test runs
-- **Server:** Vite dev server on port 5173
-- **Recording:** Enabled with Cypress Dashboard
+- **Trigger:** Runs on `push` and `pull_request` to `main` and `develop`
+- **Execution:** Standard `npm run test:e2e`
+- **Artifacts:** Uploads screenshots (on failure) and videos (always)
+- **Parallelization:** Disabled (Single container)
 
 ### Step 3: Test Locally (Optional)
 
@@ -101,18 +94,15 @@ Once tests run, you can view:
 
 ## 🔍 Monitoring Test Runs
 
-### View in GitHub:
+### View in GitHub Actions:
 
 1. Go to your repository
 2. Click **Actions** tab
 3. Select a workflow run
-4. View logs, test results, and artifacts
-
-### View in Cypress Dashboard:
-
-1. Go to [dashboard.cypress.io](https://dashboard.cypress.io)
-2. Select your project
-3. View detailed test results with videos
+4. **Summary Page**:
+   - Check if `cypress-run` job passed
+   - Scroll down to **Artifacts** section
+   - Download `cypress-screenshots` (if failed) or `cypress-videos` to debug
 
 ---
 
