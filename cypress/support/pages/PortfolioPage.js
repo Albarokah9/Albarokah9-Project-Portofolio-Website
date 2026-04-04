@@ -1,132 +1,135 @@
 import BasePage from './BasePage';
 
 /**
- * PortfolioPage - Page Object untuk halaman portfolio
- * Extends BasePage untuk inherit common methods
+ * Page Object: PortfolioPage
+ * File: PortfolioPage.js
+ * 
+ * Mengelola interaksi dan validasi elemen pada halaman utama portfolio.
+ * Menggunakan pendekatan fluent interface untuk alur pengujian yang rapi.
+ * 
+ * @class PortfolioPage
+ * @extends BasePage
  */
 class PortfolioPage extends BasePage {
-  // ==================== SELECTORS ====================
-
-  // Navbar
+  /**
+   * Definisi selector elemen yang dipetakan secara terpusat untuk memudahkan pemeliharaan.
+   * Seluruh selector diutamakan menggunakan atribut data-cy demi stabilitas testing.
+   */
   selectors = {
     navbar: {
-      logo: '.logo',
-      navLinks: '.nav-links',
-      navLink: (text) => `.nav-links a[href="#${text.toLowerCase()}"]`,
-      themeToggle: '#theme-toggle',
-      themeIcon: '.theme-icon',
-      mobileMenu: '#mobile-menu',
+      logo: '[data-cy="nav-logo"]',
+      desktopNavLinks: '[data-cy="desktop-nav-links"]',
+      get navLinks() {
+        return cy.state('viewportWidth') < 768 ? '[data-cy="mobile-nav-links"]' : '[data-cy="desktop-nav-links"]';
+      },
+      themeToggle: '[data-cy="theme-toggle"]',
+      themeIcon: '[data-cy="theme-toggle"] svg',
+      mobileMenu: '[data-cy="mobile-menu-toggle"]',
+      navLink: (text) => `[data-cy="nav-link-${text.toLowerCase()}"]`,
     },
 
-    // Hero Section
+    // Area Hero
     hero: {
-      section: '#hero',
-      name: '.user-name',
-      subtitle: '.user-role',
-      contactInfo: '.contact-row',
-      email: '.contact-row a[href^="mailto"]',
-      whatsapp: '.contact-row a[href^="https://wa.me"]',
-      linkedinBtn: '.contact-row a[href*="linkedin"]',
-      githubBtn: '.contact-row a[href*="github"]',
-      coverLetterBtn: '.contact-row a[href*="Cover_Letter"]',
-      profileImage: '.user-avatar',
+      section: '[data-cy="hero-section"]',
+      name: '[data-cy="hero-name"]',
+      role: '[data-cy="hero-role"]',
+      cta: '[data-cy="hero-cta"]',
+      linkedinBtn: '[data-cy="hero-linkedin"]',
+      githubBtn: '[data-cy="hero-github"]',
+      resumeBtn: '[data-cy="hero-resume"]',
+      coverLetterBtn: '[data-cy="hero-resume"]',
+      whatsapp: '[data-cy="hero-whatsapp"]',
     },
 
-    // About Section
+    // Bagian Tentang Saya (About)
     about: {
-      section: '#about',
-      heading: '#about h2',
-      content: '#about .terminal-body',
-      strongText: '#about .syntax-type, #about .syntax-string', // Syntax highlighted text
+      section: '[data-cy="about-section"]',
+      heading: '[data-cy="about-title"]',
+      content: '[data-cy="about-section"] p',
     },
 
-    // Experience Section
+    // Bagian Pengalaman (Experience)
     experience: {
-      section: '#experience',
-      heading: '#experience h2',
-      timeline: '.terminal-body',
-      items: '.job-log',
-      firstItem: '.job-log:first-child',
-      title: '.job-log h3',
-      company: '.job-log .syntax-text',
-      date: '.job-log .syntax-string',
-      responsibilities: '.term-list li',
+      section: '[data-cy="experience-section"]',
+      heading: '[data-cy="experience-title"]',
+      items: '[data-cy="experience-card"]',
+      firstItem: '[data-cy="experience-card"]:first',
+      title: '[data-cy="experience-role"]:first',
+      company: '[data-cy="experience-company"]',
+      date: '[data-cy="experience-date"]',
+      responsibilities: '[data-cy="experience-responsibilities"]',
     },
 
-    // Education Section
+    // Bagian Pendidikan (Education)
     education: {
-      section: '#education',
-      heading: '#education h2',
-      grid: '#education .terminal-body',
-      items: '#education .syntax-keyword', // Folder names in tree
-      icon: '#education .syntax-string', // File names
-      title: '#education .syntax-string',
-      institution: '#education .syntax-keyword', // Changed to keyword for folder names
+      section: '[data-cy="education-section"]',
+      heading: '[data-cy="education-title"]',
+      items: '[data-cy="education-card"]',
+      title: '[data-cy="education-degree"]',
+      institution: '[data-cy="education-institution"]',
     },
 
-    // Skills Section
+    // Bagian Keahlian (Skills)
     skills: {
-      section: '#skills',
-      heading: '#skills h2',
-      container: '.skills-grid-terminal',
-      categories: '.json-skill-block',
-      categoryTitle: '.syntax-keyword',
-      tags: '.syntax-string', // Individual skills are strings in JSON
-      firstCategory: '.json-skill-block:nth-child(1)',
+      section: '[data-cy="skills-section"]',
+      heading: '[data-cy="skills-title"]',
+      categories: '[data-cy="skills-section"] h3',
+      tags: '[data-cy="skills-section"] .inline-flex',
     },
 
-    // Projects Section
+    // Bagian Projek
     projects: {
-      section: '#projects',
-      heading: '#projects h2',
-      grid: '.project-grid',
-      cards: '.project-card',
-      firstCard: '.project-card:first',
-      title: '.term-project-title', // Updated for terminal card
-      description: '.output-content .term-project-desc',
-      date: '.output-content div', // approximate, or use specific class if available
-      tags: '.term-tag',
-      links: '.project-links-terminal',
-      link: 'a',
-      githubLink: 'a[href*="github.com"]',
+      section: '[data-cy="projects-section"]',
+      heading: '[data-cy="projects-title"]',
+      grid: '[data-cy="projects-section"] .grid',
+      cards: '[data-cy="project-card"]',
+      firstCard: '[data-cy="project-card"]:first',
+      title: '[data-cy="project-card-title"]',
+      description: '[data-cy="project-card-description"]',
+      tags: '[data-cy="project-tag"]',
+      tabs: '[data-cy="project-tabs"]',
+      githubLink: '[data-cy="project-github-link"]',
+      demoLink: '[data-cy="project-demo-link"]',
     },
 
-    // Certifications Section
+    // Bagian Sertifikasi
     certifications: {
-      section: '#certifications',
-      heading: '#certifications h2',
-      grid: '.certifications-grid',
-      cards: '.certifications-grid .project-card.terminal-card', // More specific selector
-      firstCard: '.certifications-grid .project-card:first',
-      icon: '.term-icon', // Might not exist, better check title
-      title: '.term-project-title',
-      issuer: '.term-project-desc',
-      description: '.term-project-desc',
-      button: '.term-link-small', // "Open_Certificate" link
+      section: '[data-cy="education-section"]', // Sertifikasi ada di dalam section pendidikan
+      heading: '[data-cy="education-title"]',
+      cards: '[data-cy="certification-card"]',
+      firstCard: '[data-cy="certification-card"]:first',
+      title: '[data-cy="cert-card-title"]',
+      issuer: '[data-cy="cert-card-description"]',
+      description: '[data-cy="cert-card-description"]',
+      button: '[data-cy="view-certificate-button"]',
     },
 
-    // Contact Section
+    // Bagian Kontak
     contact: {
-      section: '#contact',
-      heading: '#contact h2',
-      card: '.terminal-container',
-      emailBtn: '#contact a[href^="mailto"]',
-      socialLinks: '#contact .contact-actions a',
-      githubLink: '#contact a[href*="github"]',
-      linkedinLink: '#contact a[href*="linkedin"]',
+      section: '[data-cy="contact-section"]',
+      heading: '[data-cy="contact-title"]',
+      card: '[data-cy="contact-section"] .max-w-2xl',
+      emailBtn: '[data-cy="contact-email"]',
+      linkedinBtn: '[data-cy="contact-linkedin"]',
+      githubBtn: '[data-cy="contact-github"]',
+      whatsappBtn: '[data-cy="contact-whatsapp"]',
+      githubLink: '[data-cy="contact-github"]',
+      linkedinLink: '[data-cy="contact-linkedin"]',
+      socialLinks: '[data-cy="contact-section"] .flex.flex-wrap a',
     },
 
-    // Footer
+    // Bagian Kaki (Footer)
     footer: {
-      element: 'footer',
-      text: 'footer p',
+      element: '[data-cy="contact-footer"]',
+      text: '[data-cy="contact-footer"] p',
     },
   };
 
   // ==================== ACTIONS ====================
 
   /**
-   * Visit portfolio homepage
+   * Mengarahkan browser untuk mengunjungi halaman utama portfolio dan menunggu hingga semua elemen siap.
+   * @returns {PortfolioPage} Mengembalikan instance class ini untuk mendukung pemanggilan method berantai.
    */
   visitHomepage() {
     this.visit('/');
@@ -135,33 +138,38 @@ class PortfolioPage extends BasePage {
   }
 
   /**
-   * Click navigation link
-   * @param {string} linkText - Text of the nav link
+   * Melakukan klik pada salah satu tautan navigasi untuk berpindah antar bagian halaman dengan efek smooth scroll.
+   * @param {string} linkText - Nama tautan navigasi yang ingin diklik (misal: "About" atau "Skills").
+   * @returns {PortfolioPage} Mempermudah alur interaksi pengguna secara berurutan.
    */
   clickNavLink(linkText) {
-    cy.get(this.selectors.navbar.navLink(linkText)).click({ force: true });
-    cy.wait(800); // Wait for smooth scroll animation
+    const selector = this.selectors.navbar.navLink(linkText);
+    cy.get(selector).filter(':visible').click();
+    cy.wait(800); // Menunggu sebentar agar animasi scroll selesai dengan mulus.
     return this;
   }
 
   /**
-   * Toggle theme (dark/light)
+   * Mengganti tema tampilan aplikasi (Terang/Gelap) melalui tombol toggle yang tersedia di navbar.
+   * @returns {PortfolioPage} Memastikan alur testing tetap sinkron setelah pergantian tema.
    */
   toggleTheme() {
     this.click(this.selectors.navbar.themeToggle);
-    cy.wait(500); // Wait for theme transition
+    cy.wait(500); // Menunggu transisi animasi perubahan warna selesai.
     return this;
   }
 
   /**
-   * Get current theme icon
+   * Memperoleh elemen ikon tema yang sedang aktif untuk divalidasi statusnya (Matahari/Bulan).
+   * @returns {Cypress.Chainable} Mengembalikan objek Cypress berisi ikon tema saat ini.
    */
   getThemeIcon() {
     return this.getElement(this.selectors.navbar.themeIcon);
   }
 
   /**
-   * Click mobile menu toggle
+   * Membuka atau menutup menu navigasi pada tampilan perangkat seluler (mobile).
+   * @returns {PortfolioPage} Mendukung pengujian pada responsivitas tampilan mobile.
    */
   clickMobileMenu() {
     this.click(this.selectors.navbar.mobileMenu);
@@ -169,17 +177,21 @@ class PortfolioPage extends BasePage {
   }
 
   /**
-   * Scroll to section
-   * @param {string} sectionId - Section ID (e.g., 'about', 'skills')
+   * Mengarahkan tampilan layar menuju ke bagian (section) tertentu berdasarkan ID elemennya.
+   * @param {string} sectionId - ID unik dari bagian yang dituju (misal: 'projects').
+   * @returns {PortfolioPage} Membantu navigasi manual ke area konten yang spesifik.
    */
   scrollToSection(sectionId) {
-    this.scrollTo(`#${sectionId}`);
-    cy.wait(600); // Wait for smooth scroll
+    // Penanganan khusus untuk sertifikasi yang sekarang ada di section pendidikan
+    const targetId = sectionId === 'certifications' ? 'education' : sectionId;
+    this.scrollTo(`#${targetId}`);
+    cy.wait(600); // Memberikan waktu jeda agar posisi scroll benar-benar mantap.
     return this;
   }
 
   /**
-   * Click hero LinkedIn button
+   * Membuka profil LinkedIn langsung melalui tombol yang ada di area Hero.
+   * @returns {PortfolioPage} Mendukung validasi integrasi dengan platform profesional.
    */
   clickHeroLinkedIn() {
     this.click(this.selectors.hero.linkedinBtn);
@@ -187,7 +199,8 @@ class PortfolioPage extends BasePage {
   }
 
   /**
-   * Click hero GitHub button
+   * Mengakses repositori GitHub melalui tombol pintas di bagian atas halaman.
+   * @returns {PortfolioPage} Memastikan akses ke projek open-source berjalan lancar.
    */
   clickHeroGitHub() {
     this.click(this.selectors.hero.githubBtn);
@@ -195,14 +208,16 @@ class PortfolioPage extends BasePage {
   }
 
   /**
-   * Get project cards count
+   * Menghitung dan mengambil seluruh kartu projek yang ditampilkan di dalam grid.
+   * @returns {Cypress.Chainable} Mengembalikan daftar elemen kartu projek yang ditemukan.
    */
   getProjectCardsCount() {
     return this.getElement(this.selectors.projects.cards);
   }
 
   /**
-   * Click first project link
+   * Mengklik tautan yang ada pada kartu projek pertama untuk melihat detail lebih lanjut.
+   * @returns {PortfolioPage} Memvalidasi alur eksplorasi projek secara mendalam.
    */
   clickFirstProjectLink() {
     this.getElement(this.selectors.projects.firstCard)
@@ -213,7 +228,8 @@ class PortfolioPage extends BasePage {
   }
 
   /**
-   * Click first certification button
+   * Melakukan klik pada tombol di kartu sertifikasi pertama untuk memverifikasi keaslian sertifikat.
+   * @returns {PortfolioPage} Memastikan dokumen pendukung dapat diakses dengan baik.
    */
   clickFirstCertButton() {
     this.getElement(this.selectors.certifications.firstCard)
@@ -223,7 +239,8 @@ class PortfolioPage extends BasePage {
   }
 
   /**
-   * Click contact email button
+   * Memicu pembukaan aplikasi email melalui tombol kontak untuk memulai komunikasi.
+   * @returns {PortfolioPage} Menguji kesiapan fitur kontak bagi pengunjung.
    */
   clickContactEmail() {
     this.click(this.selectors.contact.emailBtn);
@@ -233,142 +250,148 @@ class PortfolioPage extends BasePage {
   // ==================== ASSERTIONS ====================
 
   /**
-   * Verify navbar is visible
+   * Memastikan bahwa bilah navigasi (navbar) tampil sempurna beserta seluruh komponen intinya.
+   * @returns {PortfolioPage} Memberikan jaminan kemudahan akses bagi pengguna.
    */
   verifyNavbarVisible() {
-    this.shouldBeVisible(this.selectors.navbar.logo);
-    this.shouldBeVisible(this.selectors.navbar.navLinks);
-    this.shouldBeVisible(this.selectors.navbar.themeToggle);
+    cy.get(this.selectors.navbar.logo).should('be.visible');
+    cy.get(this.selectors.navbar.desktopNavLinks).should('be.visible');
+    cy.get(this.selectors.navbar.themeToggle).should('be.visible');
     return this;
   }
 
   /**
-   * Verify hero section content
+   * Melakukan validasi terhadap konten di bagian Hero, seperti nama Albarokah dan posisi sebagai QA.
+   * @returns {PortfolioPage} Menjamin identitas pemilik portfolio dikenali dengan tepat.
    */
   verifyHeroSection() {
-    this.shouldBeVisible(this.selectors.hero.section);
-    this.shouldContainText(this.selectors.hero.name, 'Albarokah');
-    this.shouldContainText(this.selectors.hero.subtitle, 'QA');
-    // Email removed from Terminal Hero
-    this.shouldBeVisible(this.selectors.hero.whatsapp);
+    cy.get(this.selectors.hero.section).should('be.visible')
+      .and('contain', 'ALBAROKAH')
+      .and('contain', 'Quality Assurance');
+    cy.get(this.selectors.hero.whatsapp).should('be.visible');
     return this;
   }
 
   /**
-   * Verify about section exists
+   * Memverifikasi keberadaan bagian 'Tentang Saya' beserta ringkasan profesional yang mendalam.
+   * @returns {PortfolioPage} Memastikan pesan profesional tersampaikan dengan baik.
    */
   verifyAboutSection() {
-    this.shouldBeVisible(this.selectors.about.section);
-    this.shouldContainText(this.selectors.about.heading, 'Professional Summary');
-    this.shouldBeVisible(this.selectors.about.content);
+    cy.get(this.selectors.about.section).should('be.visible');
+    cy.get(this.selectors.about.heading).should('contain', 'Precision');
+    cy.get(this.selectors.about.content).should('be.visible');
     return this;
   }
 
   /**
-   * Verify experience section
+   * Mengecek apakah riwayat pengalaman kerja ditampilkan sesuai urutan dengan jumlah yang memadai.
+   * @returns {PortfolioPage} Menunjukkan kredibilitas profesional melalui rekam jejak yang jelas.
    */
   verifyExperienceSection() {
-    this.shouldBeVisible(this.selectors.experience.section);
-    this.shouldContainText(this.selectors.experience.heading, 'Professional Experience');
-    this.getElement(this.selectors.experience.items).should('have.length.at.least', 1);
+    cy.get(this.selectors.experience.section).should('be.visible');
+    cy.get(this.selectors.experience.heading).should('contain', 'Journey');
+    cy.get(this.selectors.experience.items).should('have.length.at.least', 1);
     return this;
   }
 
   /**
-   * Verify education section
+   * Memastikan informasi latar belakang pendidikan tertera dengan benar di halaman.
+   * @returns {PortfolioPage} Menguatkan fondasi kualifikasi akademis pengguna.
    */
   verifyEducationSection() {
-    this.shouldBeVisible(this.selectors.education.section);
-    this.shouldContainText(this.selectors.education.heading, 'Education');
-    this.getElement(this.selectors.education.items).should('have.length.at.least', 1);
+    cy.get(this.selectors.education.section).should('be.visible');
+    cy.get(this.selectors.education.heading).should('contain', 'Education');
+    cy.get(this.selectors.education.items).should('have.length.at.least', 1);
     return this;
   }
 
   /**
-   * Verify skills section
+   * Validasi daftar keahlian teknis (Skills) untuk memastikan klasifikasi dan kategori sudah lengkap.
+   * @returns {PortfolioPage} Menonjolkan kapabilitas teknis yang relevan di mata pengunjung.
    */
   verifySkillsSection() {
-    this.shouldBeVisible(this.selectors.skills.section);
-    this.shouldContainText(this.selectors.skills.heading, 'Skills');
-    this.getElement(this.selectors.skills.categories).should('have.length.at.least', 1);
-    this.getElement(this.selectors.skills.tags).should('have.length.at.least', 5);
+    cy.get(this.selectors.skills.section).should('be.visible');
+    cy.get(this.selectors.skills.heading).should('contain', 'Technical Expertise');
+    cy.get(this.selectors.skills.categories).should('have.length.at.least', 1);
+    cy.get(this.selectors.skills.tags).should('have.length.at.least', 5);
     return this;
   }
 
   /**
-   * Verify projects section
+   * Memeriksa keterpajangan kartu projek serta navigasi grid projek agar tetap tertata rapi.
+   * @returns {PortfolioPage} Memberikan impresi visual dari hasil kerja nyata.
    */
   verifyProjectsSection() {
-    this.shouldBeVisible(this.selectors.projects.section);
-    this.shouldContainText(this.selectors.projects.heading, 'My Projects');
-    this.getElement(this.selectors.projects.cards).should('have.length.at.least', 1);
+    cy.get(this.selectors.projects.section).should('be.visible');
+    cy.get(this.selectors.projects.heading).should('contain', 'Featured Projects');
+    cy.get(this.selectors.projects.cards).should('have.length.at.least', 1);
     return this;
   }
 
   /**
-   * Verify certifications section
+   * Memastikan bagian sertifikasi memuat data yang valid untuk memperkuat pembuktian keahlian.
+   * @returns {PortfolioPage} Menambah nilai kepercayaan melalui sertifikasi resmi.
    */
   verifyCertificationsSection() {
-    this.shouldBeVisible(this.selectors.certifications.section);
-    this.shouldContainText(this.selectors.certifications.heading, 'Certifications');
-    this.getElement(this.selectors.certifications.cards).should('have.length.at.least', 1);
+    cy.get(this.selectors.certifications.section).should('be.visible');
+    cy.get(this.selectors.certifications.cards).should('have.length.at.least', 1);
     return this;
   }
 
   /**
-   * Verify contact section
+   * Memvalidasi kemudahan akses kontak bagi audiens yang ingin berkolaborasi lebih lanjut.
+   * @returns {PortfolioPage} Menutup perjalanan pengunjung dengan pintu kolaborasi yang terbuka.
    */
   verifyContactSection() {
-    this.shouldBeVisible(this.selectors.contact.section);
-    this.shouldContainText(this.selectors.contact.heading, 'Get In Touch');
-    this.shouldBeVisible(this.selectors.contact.emailBtn);
+    cy.get(this.selectors.contact.section).should('be.visible');
+    cy.get(this.selectors.contact.heading).should('contain', 'bug-free');
+    cy.get(this.selectors.contact.emailBtn).should('be.visible');
     return this;
   }
 
   /**
-   * Verify footer
+   * Memastikan bagian terbawah halaman (Footer) mencantumkan hak cipta dan tahun yang valid.
+   * @returns {PortfolioPage} Memberikan kesan profesional hingga akhir halaman.
    */
   verifyFooter() {
-    this.shouldBeVisible(this.selectors.footer.element);
-    this.shouldContainText(this.selectors.footer.text, '2025');
+    cy.get(this.selectors.footer.element).should('be.visible');
+    // Menggunakan RegExp agar test tidak flaky karena perbedaan waktu/tahun sistem
+    cy.get(this.selectors.footer.text).invoke('text').should('match', /20\d{2}/);
     return this;
   }
 
   /**
-   * Verify all sections are present
+   * Menjalankan audit menyeluruh terhadap keberadaan seluruh bagian utama di dalam satu pemanggilan aksi.
+   * @returns {PortfolioPage} Mempercepat proses validasi integritas struktur halaman secara keseluruhan.
    */
   verifyAllSections() {
-    this.verifyHeroSection();
-    this.verifyAboutSection();
-    this.verifyExperienceSection();
-    this.verifyEducationSection();
-    this.verifySkillsSection();
-    this.verifyProjectsSection();
-    this.verifyCertificationsSection();
-    this.verifyContactSection();
-    this.verifyFooter();
+    this.verifyHeroSection()
+        .verifyAboutSection()
+        .verifyExperienceSection()
+        .verifyEducationSection()
+        .verifySkillsSection()
+        .verifyProjectsSection()
+        .verifyCertificationsSection()
+        .verifyContactSection()
+        .verifyFooter();
     return this;
   }
 
   /**
-   * Verify theme is applied
-   * @param {string} theme - 'light' or 'dark'
+   * Memastikan bahwa tema warna (Terang/Gelap) telah diterapkan dengan benar pada elemen root HTML.
+   * @param {string} theme - Pilihan tema yang diharapkan ('light' atau 'dark').
+   * @returns {PortfolioPage} Menjaga konsistensi estetika aplikasi sesuai preferensi pengguna.
    */
   verifyTheme(theme) {
-    if (theme === 'light') {
-      cy.get('html').should('have.attr', 'data-theme', 'light');
-      this.getThemeIcon().should('contain', '☀️');
-    } else {
-      cy.get('html').should('not.have.attr', 'data-theme', 'light');
-      this.getThemeIcon().should('contain', '🌙');
-    }
+    cy.get('html').should('have.class', theme);
     return this;
   }
 
   /**
-   * Verify external link opens in new tab
-   * @param {string} selector - Link selector
-   * @param {string} expectedUrl - Expected URL pattern
+   * Melakukan validasi terhadap tautan eksternal untuk memastikan ia terbuka di tab baru dan menuju domain yang benar.
+   * @param {string} selector - Selector CSS dari tautan yang akan diuji.
+   * @param {string} expectedUrl - Potongan alamat URL yang diharapkan sebagai destinasi.
+   * @returns {PortfolioPage} Menjamin tautan rujukan pihak ketiga bekerja dengan aman.
    */
   verifyExternalLink(selector, expectedUrl) {
     this.getElement(selector)
