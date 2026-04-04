@@ -15,13 +15,11 @@ export const projects = [
         title: 'Automation Testing - Soapleasure.com',
         shortLabel: 'Cypress E2E',
         date: 'May 2025',
-        description: 'Performed comprehensive End-to-End (E2E) automation testing for Soapleasure.com using Cypress, covering core functionalities such as Register, Login, Logout, Forgot Password, and Checkout.',
+        description: 'Performed comprehensive End-to-End (E2E) automation testing for Soapleasure.com using Cypress, covering core functionalities such as Register, Login, Logout, Forgot Password, and Checkout, while leveraging Cypress Mochawesome Reporter for detailed reporting and ClickUp for efficient test case management.',
         image: 'https://placehold.co/600x400/1a1a2e/00f2ea?text=Cypress+E2E',
         github: 'https://github.com/Albarokah9/Project_Portofolio_e2e_cypress_soapleasure',
         demo: 'https://youtu.be/C_jH0rQhaHE',
-        docs: '',
-        spreadsheet: '',
-        tags: ['Cypress', 'E2E Testing', 'Mochawesome']
+        tags: ['Cypress', 'E2E Testing', 'Mochawesome', 'ClickUp']
     },
     {
         title: 'Automation Testing Katalon Studio - Tokopedia.com',
@@ -43,20 +41,16 @@ export const projects = [
         image: 'https://placehold.co/600x400/1a1a2e/00f2ea?text=Mobile+Testing',
         github: 'https://github.com/Albarokah9/Project_katalon_Traveloka_Mobile',
         demo: '',
-        docs: '',
-        spreadsheet: '',
         tags: ['Katalon Studio', 'Mobile Testing', 'Android']
     },
     {
-        title: 'Automation Testing - BDD Cucumber Cypress',
+        title: 'Automation Testing - BDD Cucumber Cypress webappsecurity.com & Saucedemo.com',
         shortLabel: 'BDD Cucumber',
         date: 'April 2025',
-        description: 'Developed and executed End-to-End (E2E) automation test suites using Cypress and Cucumber BDD for Zero WebApp Security and Saucedemo.',
+        description: 'Developed and executed End-to-End (E2E) automation test suites using Cypress and Cucumber BDD for Zero WebApp Security and Saucedemo. Focused on critical paths including user login (valid/invalid) and search functionalities. Generated detailed reports using Cypress Mochawesome Reporter to track test execution and results effectively.',
         image: 'https://placehold.co/600x400/1a1a2e/00f2ea?text=BDD+Cucumber',
         github: 'https://github.com/Albarokah9/BDD',
         demo: '',
-        docs: '',
-        spreadsheet: '',
         tags: ['Cypress', 'BDD', 'Cucumber', 'Mochawesome']
     },
     {
@@ -89,7 +83,7 @@ export const projects = [
         date: 'Juli 2025',
         description: 'Performed manual testing on the OrangeHRM website to ensure the reliability of the Login, Logout, Forgot Password, and Change Password features.',
         image: 'https://placehold.co/600x400/1a1a2e/00f2ea?text=Manual+Testing',
-        github: '',
+        github: 'https://github.com/Albarokah9',
         demo: '',
         docs: '',
         spreadsheet: 'https://docs.google.com/spreadsheets/d/17UIqMKB-7DH3AHa4Nqn7NADEwpFZy_tz2NbMzWuq7Jk/edit?usp=sharing', // Link Spreadsheet
@@ -101,7 +95,7 @@ export const projects = [
         date: 'September 2025',
         description: 'Prepared a comprehensive Test Plan and Test Cases for the Nutapos Web Application, specifically focusing on the Discount (Diskon) Module.',
         image: 'https://placehold.co/600x400/1a1a2e/00f2ea?text=Test+Plan',
-        github: '',
+        github: 'https://github.com/Albarokah9',
         demo: '',
         docs: 'https://docs.google.com/document/d/1l66-Xyoqsr--m00lVzUl-JqKvOA8mmY1V9zwLIOCBVs/edit?usp=sharing', // Link Google Docs
         spreadsheet: '',
@@ -113,7 +107,7 @@ export const projects = [
         date: 'September 2025',
         description: 'Created a set of 15 manual test cases to validate the Search & Discount module of Nutapos Web Application.',
         image: 'https://placehold.co/600x400/1a1a2e/00f2ea?text=Test+Cases',
-        github: '',
+        github: 'https://github.com/Albarokah9',
         demo: '',
         docs: '',
         spreadsheet: 'https://docs.google.com/spreadsheets/d/1J8kQ_cC-qyN2Pw78P6o53km7jQnfCcU0Yb36KhSgmvs/edit?usp=sharing', // Link Spreadsheet
