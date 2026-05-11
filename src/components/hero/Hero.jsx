@@ -72,7 +72,7 @@ export function Hero() {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-lg mx-auto md:mx-0 leading-tight font-bold uppercase tracking-tight animate-in fade-in slide-in-from-left-12 duration-1000 delay-300">
-              Transforming complex requirements into <strong className="text-foreground">robust automation</strong>, reliable <strong className="text-foreground">API testing</strong>, and <strong className="text-foreground">seamless user experiences</strong>.
+              Transforming complex requirements into <strong className="text-primary">robust automation</strong>, reliable <strong className="text-accent">API testing</strong>, and <strong className="text-secondary">seamless user experiences</strong>.
             </p>
 
             {/* SEO & Screen Reader Keywords */}
