@@ -1,0 +1,59 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - link "Krisna Saragih" [ref=e4] [cursor=pointer]:
+        - /url: ""
+      - button "Toggle navigation" [ref=e5] [cursor=pointer]
+  - generic [ref=e9]:
+    - heading "Hello All! I'm Krisna 👋" [level=1] [ref=e10]:
+      - text: Hello All! I'm Krisna
+      - generic [ref=e11]: 👋
+    - paragraph [ref=e12]: QA professional with hands-on experience in software testing across various testing activities. Experienced in testing banking and financial systems. Skilled in test case design, defect reporting, and test documentation, with strong attention to detail and collaboration skills to ensure high-quality software delivery.
+    - generic [ref=e13]:
+      - link "" [ref=e14] [cursor=pointer]:
+        - /url: https://wa.me/6282167183919
+        - generic [ref=e15]: 
+      - link [ref=e16] [cursor=pointer]:
+        - /url: https://www.linkedin.com/in/krisna-saragih/
+        - generic [ref=e17]: 
+      - link "" [ref=e18] [cursor=pointer]:
+        - /url: https://github.com/krisnasaragih12
+        - generic [ref=e19]: 
+  - generic [ref=e21]:
+    - heading "What I Do ?" [level=1] [ref=e22]
+    - generic [ref=e25]:
+      - heading "Manual and Automation testing" [level=1] [ref=e26]
+      - list [ref=e27]:
+        - listitem [ref=e28]:
+          - generic [ref=e29]: 
+        - listitem [ref=e30]:
+          - generic [ref=e31]: 
+        - listitem [ref=e32]
+        - listitem [ref=e33]
+        - listitem [ref=e34]
+      - generic [ref=e35]:
+        - paragraph [ref=e36]: 💥 Perform manual and automated testing to make sure the application is working according to specifications by identifying and reporting bugs.
+        - paragraph [ref=e37]: 💥 Verify application functionality Test each feature to ensure optimal performance and good user experience.
+    - generic [ref=e39]:
+      - heading "Design and Manage Testcases" [level=1] [ref=e40]
+      - list [ref=e41]:
+        - listitem [ref=e42]
+        - listitem [ref=e43]
+        - listitem [ref=e44]
+        - listitem [ref=e45]
+      - generic [ref=e46]:
+        - paragraph [ref=e47]: 💥 Create and manage test cases for various test scenarios, including functional, usability, and performance testing.
+        - paragraph [ref=e48]: 💥 Ensure all aspects of the application are thoroughly tested using both manual and automated methods.
+        - paragraph [ref=e49]: 💥 Ensure quality standards by validating test results and reporting bugs via testrail or Jira.
+    - generic [ref=e53]:
+      - heading "Collaborate With the Development Process" [level=1] [ref=e54]
+      - list [ref=e55]:
+        - listitem
+        - listitem [ref=e56]:
+          - generic [ref=e57]: 
+        - listitem [ref=e58]:
+          - generic [ref=e59]: 
+      - generic [ref=e60]:
+        - paragraph [ref=e61]: 💥 Collaborate with the development team to identify and resolve software quality issues.
+        - paragraph [ref=e62]: 💥 Provide constructive feedback to enhance the final product
+  - contentinfo [ref=e63]: Made with ❤️ by Krisna Saragih

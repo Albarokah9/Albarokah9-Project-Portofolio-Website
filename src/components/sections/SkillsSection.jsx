@@ -3,26 +3,9 @@ import { skillCategories, detailedSkills } from "@/data/skills";
 import { Card, CardContent } from "@/components/ui/card";
 import { Terminal, CheckCircle2, FlaskConical, Settings, Workflow } from "lucide-react";
 
-const ANTIGRAVITY_ICON = `data:image/svg+xml;base64,${btoa(`
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <defs>
-    <linearGradient id="g" x1="0%" y1="95%" x2="0%" y2="5%">
-      <stop offset="0%" style="stop-color:#4285f4;" />
-      <stop offset="35%" style="stop-color:#34a853;" />
-      <stop offset="65%" style="stop-color:#fbbc05;" />
-      <stop offset="100%" style="stop-color:#ea4335;" />
-    </linearGradient>
-  </defs>
-  <path d="M5,85 C25,5 75,5 95,85 C75,65 25,65 5,85 Z" fill="url(#g)" />
-</svg>
-`)}`;
+const ANTIGRAVITY_ICON = "https://www.searchyour.ai/archivos/antigravity-google-ai-logo.jpg";
 
-const KATALON_ICON = `data:image/svg+xml;base64,${btoa(`
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect x="15" y="60" width="28" height="28" fill="#32c58e" rx="4" />
-  <path d="M15 54 L85 54 L60 12 L15 12 Z" fill="black" />
-</svg>
-`)}`;
+const KATALON_ICON = "https://tse3.mm.bing.net/th/id/OIP.VV3O7kjnhK6MpUefdHb8MgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3";
 
 const TOOLS_DATA = [
   { name: "Cypress", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cypressio/cypressio-original.svg" },
@@ -50,28 +33,30 @@ export function SkillsSection() {
   };
 
   return (
-    <section id="skills" data-cy="skills-section" className="py-20 border-y bg-slate-50/50 dark:bg-slate-950/20 overflow-hidden">
+    <section id="skills" data-cy="skills-section" className="py-20 border-y-4 border-black bg-accent overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <Badge variant="outline" className="px-3 py-1">Capabilities</Badge>
-          <h2 data-cy="skills-title" className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+          <div className="inline-flex items-center gap-2 px-3 py-1 border-4 border-black bg-primary text-primary-foreground text-xs font-black uppercase tracking-widest shadow-brutal-sm">
+            Capabilities
+          </div>
+          <h2 data-cy="skills-title" className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight">
             Technical Expertise
           </h2>
-          <p className="text-muted-foreground">The tools and technologies I use to break things and then ensure they never break again.</p>
+          <p className="text-xl text-foreground font-black uppercase tracking-tight bg-secondary p-4 border-4 border-black shadow-brutal inline-block">The tools and technologies I use to break things and then ensure they never break again.</p>
         </div>
 
         {/* Moving Marquee */}
         <div className="mb-20 relative overflow-hidden group py-4">
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-slate-50 dark:from-slate-950 via-slate-50/80 dark:via-slate-950/80 to-transparent z-20 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-50 dark:from-slate-950 via-slate-50/80 dark:via-slate-950/80 to-transparent z-20 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-accent via-accent/80 to-transparent z-20 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-accent via-accent/80 to-transparent z-20 pointer-events-none" />
           
           <div className="flex w-max whitespace-nowrap animate-marquee pause-on-hover px-4">
             {[...TOOLS_DATA, ...TOOLS_DATA, ...TOOLS_DATA].map((tool, index) => (
-              <div key={index} className="flex items-center gap-4 mx-12 group hover:scale-105 transition-all duration-300 cursor-default py-2">
-                <div className="w-12 h-12 flex items-center justify-center p-2 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-slate-100 dark:border-slate-700 group-hover:shadow-md group-hover:border-primary/20 transition-all">
+              <div key={index} className="flex items-center gap-4 mx-12 group cursor-default py-2">
+                <div className="w-14 h-14 flex items-center justify-center p-2 border-4 border-black bg-white shadow-brutal-sm group-hover:translate-x-[-2px] group-hover:translate-y-[-2px] group-hover:shadow-brutal transition-all">
                   <img src={tool.icon} alt={tool.name} className="w-full h-full object-contain" />
                 </div>
-                <span className="text-lg font-semibold text-slate-700 dark:text-slate-200 group-hover:text-primary transition-colors">
+                <span className="text-xl font-display font-black uppercase tracking-tight text-black group-hover:text-primary transition-colors">
                   {tool.name}
                 </span>
               </div>
@@ -79,23 +64,27 @@ export function SkillsSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {skillCategories.map((cat, index) => (
-            <Card key={index} className="overflow-hidden bg-background/60 backdrop-blur-xl border-border/50 hover:border-primary/50 shadow-lg hover:shadow-xl group hover:-translate-y-1 transition-all duration-500">
-              <div className="h-1.5 w-full bg-gradient-to-r from-blue-500 to-indigo-500 opacity-50 group-hover:opacity-100 transition-opacity" />
+            <Card 
+              key={index} 
+              className="reveal border-4 border-black shadow-brutal hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-brutal-lg transition-all overflow-hidden bg-white"
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
+              <div className="h-4 w-full bg-secondary border-b-4 border-black" />
               <CardContent className="p-6 space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-primary/10 group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-300">
+                  <div className="p-2 border-4 border-black bg-primary/20 shadow-brutal-sm">
                     {getIcon(cat.title)}
                   </div>
-                  <h3 data-cy="skills-category-title" className="font-bold text-lg tracking-tight group-hover:text-primary transition-colors">{cat.title}</h3>
+                  <h3 data-cy="skills-category-title" className="font-display font-black text-xl uppercase tracking-tight">{cat.title}</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {cat.skills.map((skill) => (
                     <Badge 
                       key={skill} 
                       variant="secondary" 
-                      className="px-3 py-1.5 text-xs font-medium bg-secondary/60 hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:-translate-y-1 hover:shadow-md cursor-default"
+                      className="border-2 border-black font-black hover:bg-primary hover:text-white"
                     >
                       {skill}
                     </Badge>
@@ -107,17 +96,17 @@ export function SkillsSection() {
         </div>
 
         {/* Technical List Grid */}
-        <div className="mt-20 p-8 rounded-3xl bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-800 overflow-hidden relative">
-          <div className="absolute top-0 right-0 p-8 text-blue-500/5 dark:text-blue-500/10">
+        <div className="mt-20 p-8 border-4 border-black bg-white shadow-brutal-lg overflow-hidden relative">
+          <div className="absolute top-0 right-0 p-8 text-black/5">
             <Terminal size={120} />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10 relative z-10">
             {detailedSkills.map((section, idx) => (
               <div key={idx} className="space-y-4">
-                <h4 className="text-blue-600 dark:text-blue-400 font-mono text-sm uppercase tracking-widest border-b border-slate-200 dark:border-white/10 pb-2">
+                <h4 className="text-black bg-primary inline-block px-2 py-1 font-display font-black text-lg uppercase tracking-widest border-4 border-black shadow-brutal-sm">
                   {section.category}
                 </h4>
-                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p className="text-base font-black uppercase tracking-tight text-slate-900 leading-tight border-l-4 border-black pl-4">
                   {section.items}
                 </p>
               </div>

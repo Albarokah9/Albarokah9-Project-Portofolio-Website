@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@/components/theme-provider"
+import { useEffect } from "react"
 import { Navbar } from "@/components/layout/Navbar"
 import { Hero } from "@/components/hero/Hero"
 import { AboutSection } from "@/components/sections/AboutSection"
@@ -7,23 +7,58 @@ import { SkillsSection } from "@/components/sections/SkillsSection"
 import { ProjectsSection } from "@/components/projects/ProjectsSection"
 import { EducationSection } from "@/components/sections/EducationSection"
 import { ContactSection } from "@/components/layout/Contact"
+import { CustomCursor } from "@/components/ui/CustomCursor"
 
 function App() {
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active")
+        }
+      })
+    }, observerOptions)
+
+    const elements = document.querySelectorAll(".reveal, .reveal-left, .reveal-right")
+    elements.forEach(el => observer.observe(el))
+
+    return () => {
+      elements.forEach(el => observer.unobserve(el))
+    }
+  }, [])
+
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <div className="min-h-screen bg-background font-sans antialiased text-foreground">
+    <div className="min-h-screen font-sans antialiased text-foreground">
+        <CustomCursor />
         <Navbar />
         <main>
           <Hero />
-          <AboutSection />
-          <ExperienceSection />
-          <SkillsSection />
-          <ProjectsSection />
-          <EducationSection />
+          <div className="reveal">
+            <AboutSection />
+          </div>
+          <div className="reveal">
+            <ExperienceSection />
+          </div>
+          <div className="reveal">
+            <SkillsSection />
+          </div>
+          <div className="reveal">
+            <ProjectsSection />
+          </div>
+          <div className="reveal">
+            <EducationSection />
+          </div>
         </main>
-        <ContactSection />
-      </div>
-    </ThemeProvider>
+        <div className="reveal">
+          <ContactSection />
+        </div>
+    </div>
   )
 }
 

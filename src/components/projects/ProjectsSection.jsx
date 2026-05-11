@@ -19,12 +19,12 @@ export function ProjectsSection() {
   })
 
   return (
-    <section id="projects" data-cy="projects-section" className="py-20 bg-muted/30">
+    <section id="projects" data-cy="projects-section" className="py-20">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div className="space-y-2">
-            <h2 data-cy="projects-title" className="text-3xl md:text-4xl font-bold tracking-tight">Featured Projects</h2>
-            <p className="text-muted-foreground">A collection of my recent testing and automation work.</p>
+          <div className="space-y-4">
+            <h2 data-cy="projects-title" className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight">Featured Projects</h2>
+            <p className="text-xl text-foreground font-black uppercase tracking-tight bg-secondary p-4 border-4 border-black shadow-brutal inline-block">A collection of my recent testing and automation work.</p>
           </div>
           
           <Tabs value={filter} onValueChange={setFilter} data-cy="project-tabs" className="w-full md:w-auto">
@@ -42,8 +42,11 @@ export function ProjectsSection() {
           {filteredProjects.map((project, idx) => (
             <div 
               key={idx} 
-              className="animate-in fade-in slide-in-from-bottom-4 duration-500"
-              style={{ animationDelay: `${idx * 100}ms` }}
+              className="reveal animate-in fade-in slide-in-from-bottom-4 duration-500"
+              style={{ 
+                transitionDelay: `${idx * 100}ms`,
+                animationDelay: `${idx * 100}ms`
+              }}
             >
               <ProjectCard project={project} />
             </div>
