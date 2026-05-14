@@ -9,6 +9,14 @@ import { EducationSection } from "@/components/sections/EducationSection"
 import { ContactSection } from "@/components/layout/Contact"
 import { CustomCursor } from "@/components/ui/CustomCursor"
 
+/**
+ * Komponen Utama Aplikasi Portofolio.
+ * File ini mengatur struktur utama halaman, termasuk Navbar, Hero, dan berbagai section profil.
+ * Mengimplementasikan Intersection Observer untuk animasi reveal saat scroll.
+ * 
+ * @function App
+ * @returns {JSX.Element} Halaman portofolio utama.
+ */
 function App() {
   useEffect(() => {
     const observerOptions = {
